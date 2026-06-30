@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0d47a1;
+  --color-primary-dark: #0a367a;
+  --color-secondary: #4caf50;
+  --color-accent: #00bcd4;
+  --color-surface: #f8fafc;
+  --font-sans: 'Poppins', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-gray-800 bg-white;
+  }
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* Soft medical pattern background utility */
+.bg-medical-pattern {
+  background-color: #ffffff;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 20px 20px;
+}
