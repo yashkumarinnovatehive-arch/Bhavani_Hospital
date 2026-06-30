@@ -15,11 +15,13 @@ const doctorsList = [
     name: 'Dr. Gajanan Cheke',
     qualification: '(MD Pediatrics)',
     specialization: 'Child Specialist',
+    image: 'https://placehold.co/600x400/e2e8f0/64748b?text=Doctor+Image',
   },
   {
     name: 'Dr. Madhuri Todkari',
     qualification: '(MD Ayu)',
     specialization: 'Ayurvedic Consultant & Panchkarma Specialist',
+    image: 'https://placehold.co/600x400/e2e8f0/64748b?text=Doctor+Image',
   }
 ];
 
