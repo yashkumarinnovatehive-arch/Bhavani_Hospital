@@ -33,7 +33,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="font-bold text-gray-800 mb-1">Phone Number</h4>
-                <p className="text-sm text-gray-600">Reception: +91 98765 43210</p>
+                <p className="text-sm text-gray-600">Reception: +91 7796 655 655</p>
                 <p className="text-sm text-red-500 font-semibold mt-1">Emergency: 1066</p>
               </div>
             </div>
@@ -50,10 +50,10 @@ const Contact = () => {
             </div>
 
             <div className="flex gap-4">
-              <a href="tel:+919876543210" className="flex-1 bg-primary text-white py-3 rounded-lg flex items-center justify-center gap-2 font-semibold hover:bg-primary-dark transition-colors">
+              <a href="tel:+917796655655" className="flex-1 bg-primary text-white py-3 rounded-lg flex items-center justify-center gap-2 font-semibold hover:bg-primary-dark transition-colors">
                 <FaPhoneAlt /> Call
               </a>
-              <a href="#" className="flex-1 bg-green-500 text-white py-3 rounded-lg flex items-center justify-center gap-2 font-semibold hover:bg-green-600 transition-colors">
+              <a href="https://wa.me/917796655655" className="flex-1 bg-green-500 text-white py-3 rounded-lg flex items-center justify-center gap-2 font-semibold hover:bg-green-600 transition-colors">
                 <FaWhatsapp size={18} /> WhatsApp
               </a>
             </div>

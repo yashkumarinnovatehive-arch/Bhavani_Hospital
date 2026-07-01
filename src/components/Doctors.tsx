@@ -4,12 +4,12 @@ const doctorsList = [
   {
     name: 'Dr. Omprakash Todakari',
     specialization: 'General Physician Doctors',
-    image: '/Dr cabin.png', 
+    image: '/dr_omprakash_todakari.jpeg', 
   },
   {
-    name: 'Dr. Omprakash Todakari',
+    name: 'Dr. Ashwini Todakari',
     specialization: 'Ayurvedic General Physician',
-    image: '/A.png', 
+    image: '/dr_ashwini_todakari.jpeg', 
   },
   {
     name: 'Dr. Gajanan Cheke',

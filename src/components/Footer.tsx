@@ -9,16 +9,16 @@ const Footer = () => {
           
           {/* Brand */}
           <div className="lg:pr-4">
-            <div className="flex items-center gap-2 mb-6">
-              <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-16 md:h-20 w-auto object-contain bg-white/90 p-2 rounded-xl shadow-md" />
+            <div className="flex items-center mb-6 group">
+              <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-16 md:h-20 w-auto object-contain bg-white/90 p-2 rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105" />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               Your trusted healthcare partner providing comprehensive medical services with modern facilities and compassionate care.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaFacebookF size={14} /></a>
+              <a href="https://facebook.com/bhavanihospitalpune" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaFacebookF size={14} /></a>
               <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaTwitter size={14} /></a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaInstagram size={14} /></a>
+              <a href="https://instagram.com/bhavani_hospitals" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaInstagram size={14} /></a>
               <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaLinkedinIn size={14} /></a>
             </div>
           </div>
@@ -66,9 +66,13 @@ const Footer = () => {
               <span className="block text-xs text-gray-400 mb-1">Ambulance / Emergency</span>
               <a href="tel:1066" className="text-2xl font-bold text-accent">1066</a>
             </div>
-            <div className="bg-white/5 p-4 rounded-xl border border-white/10 transition-colors hover:bg-white/10">
+            <div className="bg-white/5 p-4 rounded-xl border border-white/10 mb-4 transition-colors hover:bg-white/10">
               <span className="block text-xs text-gray-400 mb-1">Reception</span>
-              <a href="tel:+919876543210" className="text-lg font-bold text-white">+91 98765 43210</a>
+              <a href="tel:+917796655655" className="text-lg font-bold text-white">+91 7796 655 655</a>
+            </div>
+            <div className="bg-white/5 p-4 rounded-xl border border-white/10 transition-colors hover:bg-white/10">
+              <span className="block text-xs text-gray-400 mb-1">Email</span>
+              <a href="mailto:bhavanihospital.lk@gmail.com" className="text-sm font-bold text-white break-all">bhavanihospital.lk@gmail.com</a>
             </div>
           </div>
           
@@ -78,7 +82,7 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
           <p>&copy; {new Date().getFullYear()} Bhavani Hospital Pune. All rights reserved.</p>
           <p className="flex items-center gap-1 font-medium">
-            Designed & Developed by <span className="text-white ml-1 font-bold">InnovateHive</span>
+            Designed & Developed by <a href="https://innovatehive.in/" target="_blank" rel="noopener noreferrer" className="text-white ml-1 font-bold hover:text-accent transition-colors">InnovateHive</a>
           </p>
         </div>
       </div>

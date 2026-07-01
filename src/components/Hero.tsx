@@ -53,7 +53,7 @@ const Hero = () => {
                 <span>Book Appointment</span>
               </a>
               <a 
-                href="tel:+919876543210" 
+                href="tel:+917796655655" 
                 className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur text-primary px-8 py-3.5 rounded-full font-semibold hover:bg-white transition-all shadow-lg hover:shadow-2xl transform hover:-translate-y-1"
               >
                 <FaPhoneAlt />

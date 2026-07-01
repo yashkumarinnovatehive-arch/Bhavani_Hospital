@@ -38,8 +38,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 z-50">
-            <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+          <Link to="/" className="flex items-center z-50 group">
+            <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md" />
           </Link>
 
           {/* Desktop Nav */}
@@ -57,7 +57,7 @@ const Navbar = () => {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a href="tel:+919876543210" className="flex items-center gap-2 text-primary border border-primary px-4 py-2 rounded-full font-medium hover:bg-primary/5 transition-colors">
+            <a href="tel:+917796655655" className="flex items-center gap-2 text-primary border border-primary px-4 py-2 rounded-full font-medium hover:bg-primary/5 transition-colors">
               <FaPhoneAlt size={14} />
               <span>Call Now</span>
             </a>
@@ -98,7 +98,7 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col space-y-4 pt-4 mt-2 border-t border-gray-100">
-                <a href="tel:+919876543210" className="flex items-center justify-center gap-2 text-primary border-2 border-primary px-4 py-3 rounded-full font-semibold hover:bg-primary/5 transition-colors">
+                <a href="tel:+917796655655" className="flex items-center justify-center gap-2 text-primary border-2 border-primary px-4 py-3 rounded-full font-semibold hover:bg-primary/5 transition-colors">
                   <FaPhoneAlt size={14} />
                   <span>Call Now</span>
                 </a>

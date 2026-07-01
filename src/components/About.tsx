@@ -55,7 +55,7 @@ const About = () => {
             </h2>
             
             <p className="text-gray-600 mb-6 leading-relaxed">
-              At Bhavani Hospital, we believe in patient-centric care. Our state-of-the-art facility is equipped with modern medical technology and staffed by compassionate professionals dedicated to your well-being.
+              Bhavani Hospital, a leading and trusted healthcare provider, stands proudly at the MIT Corner, near Bharat Petroleum, on the Pune-Solapur Highway in Loni Kalbhor, Maharashtra. Established on the 7th of March 2021, it has quickly become the preferred destination for quality medical services. As a dedicated healthcare institution, Bhavani Hospital ensures that every patient receives holistic and compassionate care, making it the preferred destination for those seeking quality healthcare in the region.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

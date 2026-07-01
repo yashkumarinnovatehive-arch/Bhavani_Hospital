@@ -27,7 +27,7 @@ const Appointment = () => {
 
   const handleWhatsApp = () => {
     const text = `Hello Bhavani Hospital, I would like to book an appointment.\nName: ${formData.name}\nPhone: ${formData.phone}\nDepartment: ${formData.department}\nPreferred Date: ${formData.date}`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/917796655655?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
@@ -78,7 +78,7 @@ const Appointment = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="+91 98765 43210" />
+                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="+91 7796 655 655" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Age</label>

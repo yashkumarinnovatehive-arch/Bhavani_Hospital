@@ -25,7 +25,7 @@ const OPD = () => {
               </div>
               <div>
                 <div className="text-sm text-gray-200">Emergency Contact</div>
-                <a href="tel:+919876543210" className="text-xl font-bold text-white hover:text-accent transition-colors">+91 98765 43210</a>
+                <a href="tel:+917796655655" className="text-xl font-bold text-white hover:text-accent transition-colors">+91 7796 655 655</a>
               </div>
             </div>
           </div>
