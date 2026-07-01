@@ -10,8 +10,10 @@
 }
 
 @layer base {
-  body {
-    @apply font-sans antialiased text-gray-800 bg-slate-50 overflow-x-hidden;
+  html, body {
+    @apply font-sans antialiased text-gray-800 bg-slate-50;
+    overflow-x: hidden;
+    width: 100%;
   }
 }
 

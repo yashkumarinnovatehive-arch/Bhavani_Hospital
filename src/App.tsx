@@ -17,7 +17,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 const Home = () => (
-  <div className="min-h-screen font-sans">
+  <div className="min-h-screen font-sans overflow-x-hidden">
     <Navbar />
     <Hero />
     <Highlights />

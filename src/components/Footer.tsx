@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -16,10 +16,7 @@ const Footer = () => {
               Your trusted healthcare partner providing comprehensive medical services with modern facilities and compassionate care.
             </p>
             <div className="flex gap-3">
-              <a href="https://facebook.com/bhavanihospitalpune" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaFacebookF size={14} /></a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaTwitter size={14} /></a>
               <a href="https://instagram.com/bhavani_hospitals" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaInstagram size={14} /></a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><FaLinkedinIn size={14} /></a>
             </div>
           </div>
 

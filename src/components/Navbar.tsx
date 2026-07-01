@@ -38,8 +38,16 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           
           {/* Logo */}
-          <Link to="/" className="flex items-center z-50 group">
-            <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md" />
+          <Link to="/" className="flex items-center gap-3 z-50 group">
+            <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md" />
+            <div className="flex flex-col justify-center">
+              <h1 className="text-lg md:text-2xl font-extrabold text-primary tracking-tight leading-tight">
+                Bhavani Hospital
+              </h1>
+              <p className="text-[10px] md:text-xs text-secondary font-semibold tracking-wider">
+                Best of care, close to home
+              </p>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

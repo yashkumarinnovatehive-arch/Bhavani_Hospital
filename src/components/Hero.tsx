@@ -4,7 +4,7 @@ import { FaPhoneAlt, FaCalendarCheck } from 'react-icons/fa';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[500px] md:min-h-[600px] h-[100svh] flex items-center justify-center pt-16 md:pt-20">
+    <section id="home" className="relative min-h-[500px] md:min-h-[600px] h-[100svh] pt-28 md:pt-36 pb-16 flex flex-col">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a2540]/80 via-[#0a2540]/50 to-[#0a2540]/90"></div>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col justify-center h-full">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col h-full">
         <div className="max-w-3xl text-white">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
