@@ -15,8 +15,8 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-gray-50 border-t border-gray-100">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="py-16 md:py-20 bg-gray-50 border-t border-gray-100">
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Left: Content */}
           <div className="w-full lg:w-1/2">
@@ -26,20 +26,22 @@ const WhyChooseUs = () => {
               We understand that choosing a healthcare provider is a critical decision. At Bhavani Hospital, we combine medical expertise with compassionate care to ensure you get the best possible treatment in a safe and comfortable environment.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {reasons.map((reason, index) => (
                 <motion.div 
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white/70 backdrop-blur-sm border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <reason.icon size={16} />
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full bg-blue-50 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-inner">
+                      <reason.icon size={24} />
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-lg group-hover:text-primary transition-colors">{reason.title}</h3>
                   </div>
-                  <span className="font-semibold text-gray-700 text-sm">{reason.title}</span>
                 </motion.div>
               ))}
             </div>
@@ -54,11 +56,12 @@ const WhyChooseUs = () => {
             className="w-full lg:w-1/2"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-primary rounded-3xl transform rotate-3 scale-105 opacity-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent to-primary rounded-3xl transform rotate-3 scale-105 opacity-20"></div>
               <img 
-                src="https://images.unsplash.com/photo-1551076805-e18690c5e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                 alt="Medical Team" 
-                className="relative z-10 rounded-3xl shadow-xl w-full h-auto object-cover"
+                className="relative z-10 rounded-3xl shadow-2xl w-full h-auto object-cover ring-4 ring-white/50"
+                loading="lazy"
               />
               
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-2xl z-20 hidden md:block">

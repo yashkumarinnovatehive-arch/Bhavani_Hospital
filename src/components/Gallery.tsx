@@ -28,7 +28,7 @@ const Gallery = () => {
   const slides = filteredImages.map(img => ({ src: img.src }));
 
   return (
-    <section id="gallery" className="py-20 bg-white">
+    <section id="gallery" className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="text-accent font-semibold tracking-wider uppercase mb-2">Our Gallery</div>
@@ -52,21 +52,22 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Masonry Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+        {/* Standard Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredImages.map((img, i) => (
             <motion.div
               key={img.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="break-inside-avoid group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 cursor-pointer aspect-[4/3]"
               onClick={() => setIndex(i)}
             >
               <img 
                 src={img.src} 
                 alt={img.alt} 
-                className="w-full h-auto transform transition-transform duration-700 group-hover:scale-110" 
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

@@ -11,7 +11,7 @@ const features = [
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Left: Image */}
@@ -26,7 +26,8 @@ const About = () => {
               <img 
                 src="/Building.png" 
                 alt="Bhavani Hospital Interior" 
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-contain bg-slate-50"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-8">
                 <div className="text-white">

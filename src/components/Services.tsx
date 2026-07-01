@@ -31,14 +31,16 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group cursor-pointer"
+              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-2 hover:border-primary/20 transition-all duration-300 group cursor-pointer relative overflow-hidden"
             >
-              <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-accent/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+              
+              <div className="w-14 h-14 bg-blue-50/50 rounded-xl flex items-center justify-center text-2xl text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-inner">
                 <service.icon />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed">{service.desc}</p>
-              <div className="flex items-center text-primary font-medium text-sm gap-2 opacity-80 group-hover:opacity-100 transition-opacity">
+              <p className="text-gray-600 text-sm mb-6 leading-relaxed">{service.desc}</p>
+              <div className="flex items-center text-accent font-semibold text-sm gap-2 opacity-80 group-hover:opacity-100 transition-opacity">
                 <span>Read More</span>
                 <FaArrowRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
               </div>

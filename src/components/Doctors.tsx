@@ -27,23 +27,27 @@ const doctorsList = [
 
 const Doctors = () => {
   return (
-    <section id="doctors" className="py-20 bg-white border-t border-gray-100">
-      <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
+    <section id="doctors" className="py-16 md:py-20 bg-white border-t border-gray-100">
+      <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
         <h2 className="text-2xl font-bold text-gray-900 mb-8">Doctors in Bhavani Hospital</h2>
 
-        <div className="flex flex-wrap gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {doctorsList.map((doctor, index) => (
             <div 
               key={index}
-              className={`w-full sm:w-72 group ${!doctor.image ? 'bg-gray-50 border border-gray-200 rounded-2xl p-6 flex flex-col justify-center' : ''}`}
+              className={`w-full group ${!doctor.image ? 'bg-gray-50 border border-gray-200 rounded-2xl p-6 flex flex-col justify-center' : ''}`}
             >
               {/* Doctor Image (Conditional) */}
               {doctor.image && (
-                <div className="w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-4">
+                <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden mb-4 bg-gray-100">
                   <img 
                     src={doctor.image} 
                     alt={doctor.name} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(doctor.name)}&background=0d47a1&color=fff&size=512`;
+                    }}
                   />
                 </div>
               )}
