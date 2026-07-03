@@ -11,8 +11,8 @@ const Hero = () => {
       <div className="absolute top-40 right-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-8 left-40 w-64 h-64 bg-teal-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 pt-10 sm:pt-0">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           
           {/* Left Text Content */}
           <div className="max-w-2xl">
@@ -73,32 +73,18 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:block"
+            className="relative mt-8 lg:mt-0 block"
           >
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/10 border-4 border-white">
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/10 border-4 border-white aspect-[4/3] lg:aspect-auto">
               <img 
                 src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                 alt="Modern Hospital Facility" 
-                className="w-full h-[500px] object-cover"
+                className="w-full h-full lg:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
             </div>
             
-            {/* Floating Stats Card */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute top-1/2 -left-12 -translate-y-1/2 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4 z-20"
-            >
-              <div className="w-14 h-14 rounded-full bg-accent-light flex items-center justify-center text-accent text-2xl font-bold">
-                24/7
-              </div>
-              <div>
-                <p className="text-gray-900 font-bold text-lg">Emergency Care</p>
-                <p className="text-gray-500 text-sm">Always here for you</p>
-              </div>
-            </motion.div>
+
           </motion.div>
 
         </div>

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { motion } from 'framer-motion';
-import { FaExpandArrowsAlt } from 'react-icons/fa';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const galleryImages = [
   { id: 1, category: 'Hospital Exterior', src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Hospital Exterior' },
@@ -15,77 +17,86 @@ const galleryImages = [
   { id: 8, category: 'Facilities', src: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Laboratory' },
 ];
 
-const categories = ['All', 'Hospital Exterior', 'Reception', 'Doctor Cabin', 'OPD', 'Facilities', 'Medical Equipment', 'Beds', 'Clinic Interior'];
-
 const Gallery = () => {
-  const [activeTab, setActiveTab] = useState('All');
-  const [index, setIndex] = useState(-1);
-
-  const filteredImages = activeTab === 'All' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeTab);
-
-  const slides = filteredImages.map(img => ({ src: img.src }));
-
   return (
     <section id="gallery" className="py-16 md:py-20 bg-white">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="text-accent font-semibold tracking-wider uppercase mb-2">Our Gallery</div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">A Glimpse Inside Bhavani Hospital</h2>
         </div>
 
-        {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((cat, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveTab(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeTab === cat 
-                  ? 'bg-primary text-white shadow-md' 
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <style>{`
+            .gallery-slider .swiper-button-next,
+            .gallery-slider .swiper-button-prev {
+              background: transparent !important;
+              color: #0ea5e9 !important; 
+              box-shadow: none !important;
+              width: 30px !important;
+              height: 30px !important;
+            }
+            .gallery-slider .swiper-button-next::after,
+            .gallery-slider .swiper-button-prev::after {
+              font-size: 1.25rem !important;
+              font-weight: 400 !important;
+            }
+            .gallery-slider .swiper-button-next:hover,
+            .gallery-slider .swiper-button-prev:hover {
+              background: transparent !important;
+              color: #1e3a8a !important;
+              transform: scale(1.1);
+            }
+            .gallery-slider .swiper-pagination-bullet {
+              background: #000;
+              opacity: 0.4;
+            }
+            .gallery-slider .swiper-pagination-bullet-active {
+              background: #0ea5e9 !important;
+              opacity: 1;
+            }
+          `}</style>
 
-        {/* Standard Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredImages.map((img, i) => (
-            <motion.div
-              key={img.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 cursor-pointer aspect-[4/3]"
-              onClick={() => setIndex(i)}
-            >
-              <img 
-                src={img.src} 
-                alt={img.alt} 
-                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <FaExpandArrowsAlt size={20} />
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="gallery-slider pb-16 px-2"
+          >
+            {galleryImages.map((img, index) => (
+              <SwiperSlide key={img.id}>
+                <div className="relative h-[400px] md:h-[500px] w-full rounded-[2rem] overflow-hidden shadow-lg group">
+                  <img 
+                    src={img.src} 
+                    alt={img.alt} 
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  {/* Gradient Overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
+                  
+                  {/* Title block */}
+                  <div className="absolute bottom-12 left-12">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">{img.category}</h3>
+                    <div className="w-10 h-1 bg-accent"></div>
+                  </div>
                 </div>
-                <span className="font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{img.category}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Lightbox */}
-        <Lightbox
-          index={index}
-          open={index >= 0}
-          close={() => setIndex(-1)}
-          slides={slides}
-        />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
       </div>
     </section>
   );

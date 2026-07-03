@@ -45,32 +45,65 @@ const Facilities = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
+          <style>{`
+            .custom-slider .swiper-button-next,
+            .custom-slider .swiper-button-prev {
+              background: transparent !important;
+              color: #0ea5e9 !important; 
+              box-shadow: none !important;
+              width: 30px !important;
+              height: 30px !important;
+            }
+            .custom-slider .swiper-button-next::after,
+            .custom-slider .swiper-button-prev::after {
+              font-size: 1.25rem !important;
+              font-weight: 400 !important;
+            }
+            .custom-slider .swiper-button-next:hover,
+            .custom-slider .swiper-button-prev:hover {
+              background: transparent !important;
+              color: #1e3a8a !important;
+              transform: scale(1.1);
+            }
+            .custom-slider .swiper-pagination-bullet {
+              background: #000;
+              opacity: 0.4;
+            }
+            .custom-slider .swiper-pagination-bullet-active {
+              background: #0ea5e9 !important;
+              opacity: 1;
+            }
+          `}</style>
+
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={32}
+            spaceBetween={24}
             slidesPerView={1}
             navigation
-            pagination={{ clickable: true, dynamicBullets: true }}
+            pagination={{ clickable: true }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             breakpoints={{
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="pb-16"
+            className="custom-slider pb-16 px-2"
           >
             {facilitiesList.map((facility, index) => (
               <SwiperSlide key={index}>
-                <div className="relative rounded-[2rem] overflow-hidden shadow-lg h-72 lg:h-80 group border-4 border-white">
+                <div className="relative h-[400px] md:h-[500px] w-full rounded-[2rem] overflow-hidden shadow-lg group">
                   <img 
                     src={facility.image} 
                     alt={facility.name} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <h3 className="text-2xl font-bold text-white mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">{facility.name}</h3>
-                    <div className="w-12 h-1 bg-accent rounded-full transform origin-left scale-x-50 group-hover:scale-x-100 transition-transform duration-500"></div>
+                  {/* Gradient Overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
+                  
+                  {/* Title block */}
+                  <div className="absolute bottom-12 left-12">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">{facility.name}</h3>
+                    <div className="w-10 h-1 bg-accent"></div>
                   </div>
                 </div>
               </SwiperSlide>

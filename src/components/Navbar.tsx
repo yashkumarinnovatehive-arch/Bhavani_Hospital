@@ -111,36 +111,60 @@ const Navbar = () => {
           {/* Mobile Menu Toggle */}
           <button 
             className="xl:hidden text-gray-700 text-2xl focus:outline-none shrink-0 ml-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen(true)}
           >
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            <FaBars />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Backdrop */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="xl:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 overflow-hidden"
+            className="xl:hidden fixed inset-0 bg-black/60 z-40 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Menu Drawer */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ x: '100%', opacity: 0.5 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '100%', opacity: 0.5 }}
+            transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
+            className="xl:hidden fixed top-0 right-0 h-[100dvh] w-[85%] max-w-[320px] bg-white shadow-2xl z-50 flex flex-col"
           >
-            <div className="flex flex-col px-4 sm:px-6 py-4 sm:py-6 space-y-2 sm:space-y-3 max-h-[80vh] overflow-y-auto">
+            <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+              <span className="font-extrabold text-xl text-primary">Menu</span>
+              <button 
+                className="text-gray-400 hover:text-primary transition-colors focus:outline-none p-2 -mr-2 rounded-full hover:bg-primary/10"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <FaTimes size={24} />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-6 py-6 space-y-4">
               {navItems.map((item, index) => (
                 <React.Fragment key={index}>
                   {item.dropdown ? (
-                    <div className="flex flex-col space-y-1">
-                      <div className="text-gray-400 font-bold text-[11px] uppercase tracking-wider px-4 pt-3 pb-1">
+                    <div className="flex flex-col space-y-1 mb-2">
+                      <div className="text-gray-400 font-bold text-xs uppercase tracking-widest pt-2 pb-2 border-b border-gray-50 mb-1">
                         {item.name}
                       </div>
                       {item.dropdown.map((sub, subIdx) => (
                         <a 
                           key={subIdx} 
                           href={sub.path}
-                          className="text-gray-700 font-medium hover:text-primary hover:bg-gray-50 px-4 py-2.5 sm:py-3 rounded-lg transition-colors text-sm sm:text-base ml-2"
+                          className="text-gray-700 font-semibold hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all text-base"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {sub.name}
@@ -150,7 +174,7 @@ const Navbar = () => {
                   ) : (
                     <a 
                       href={item.path}
-                      className="text-gray-700 font-medium hover:text-primary hover:bg-gray-50 px-4 py-2.5 sm:py-3 rounded-lg transition-colors text-sm sm:text-base mt-1"
+                      className="block text-gray-800 font-bold hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all text-lg"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -158,15 +182,16 @@ const Navbar = () => {
                   )}
                 </React.Fragment>
               ))}
-              <div className="flex flex-col space-y-3 sm:space-y-4 pt-5 mt-3 border-t border-gray-100">
-                <a href="tel:+917796655655" className="flex items-center justify-center gap-2 text-primary border-2 border-primary px-4 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-primary/5 transition-colors text-sm sm:text-base">
-                  <FaPhoneAlt size={14} />
-                  <span>Call Now</span>
-                </a>
-                <a href="#appointment" className="bg-primary text-white text-center px-6 py-2.5 sm:py-3 rounded-full font-semibold shadow-md text-sm sm:text-base" onClick={() => setIsMobileMenuOpen(false)}>
-                  Book Appointment
-                </a>
-              </div>
+            </div>
+            
+            <div className="p-6 border-t border-gray-100 bg-gray-50/50 space-y-3">
+              <a href="tel:+917796655655" className="flex items-center justify-center gap-2 text-primary border-2 border-primary/20 bg-white px-4 py-3.5 rounded-xl font-bold hover:bg-primary/5 transition-colors text-base shadow-sm">
+                <FaPhoneAlt size={16} />
+                <span>Call Now</span>
+              </a>
+              <a href="#appointment" className="flex justify-center bg-gradient-to-r from-primary to-accent text-white px-4 py-3.5 rounded-xl font-bold shadow-md hover:shadow-lg text-base transition-all" onClick={() => setIsMobileMenuOpen(false)}>
+                Book Appointment
+              </a>
             </div>
           </motion.div>
         )}

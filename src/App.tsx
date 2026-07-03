@@ -12,7 +12,6 @@ import Facilities from './components/Facilities';
 import Gallery from './components/Gallery';
 import Appointment from './components/Appointment';
 import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -30,7 +29,6 @@ const Home = () => (
     <Gallery />
     <Appointment />
     <Testimonials />
-    <FAQ />
     <Contact />
     <Footer />
     

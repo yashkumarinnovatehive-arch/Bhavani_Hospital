@@ -73,12 +73,7 @@ const OPD = () => {
               transition={{ duration: 0.6 }}
               className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-2xl relative border-8 border-white/10 bg-clip-padding"
             >
-              <div className="absolute -top-8 -right-8 w-28 h-28 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center text-white shadow-2xl rotate-12 animate-pulse-slow">
-                <div className="text-center">
-                  <span className="block font-extrabold text-2xl">24/7</span>
-                  <span className="block text-sm font-bold uppercase tracking-wider">Open</span>
-                </div>
-              </div>
+
               
               <div className="flex items-center gap-4 mb-10 border-b border-gray-100 pb-6">
                 <div className="w-12 h-12 rounded-full bg-primary-light text-primary flex items-center justify-center">

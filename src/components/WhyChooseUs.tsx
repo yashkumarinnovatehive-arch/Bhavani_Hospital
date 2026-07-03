@@ -34,22 +34,25 @@ const WhyChooseUs = () => {
               We understand that choosing a healthcare provider is a critical decision. At Bhavani Hospital, we combine medical expertise with compassionate care to ensure you get the best possible treatment in a safe and comfortable environment.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mt-8">
               {reasons.map((reason, index) => (
                 <motion.div 
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start gap-4 group"
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="flex flex-col items-center justify-center text-center p-6 bg-slate-50 border border-gray-100 rounded-[2rem] hover:bg-white hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 group cursor-pointer relative overflow-hidden"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:-rotate-3">
-                    <reason.icon size={20} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0 pointer-events-none"></div>
+                  
+                  <div className="w-16 h-16 rounded-2xl bg-white text-primary flex items-center justify-center shadow-sm group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-300 transform group-hover:-rotate-6 group-hover:scale-110 mb-5 z-10 relative border border-gray-100 group-hover:border-transparent">
+                    <reason.icon size={26} />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors">{reason.title}</h3>
-                  </div>
+                  
+                  <h3 className="font-extrabold text-gray-800 text-sm md:text-base leading-tight group-hover:text-primary transition-colors z-10 relative">
+                    {reason.title}
+                  </h3>
                 </motion.div>
               ))}
             </div>
@@ -61,7 +64,7 @@ const WhyChooseUs = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2 relative hidden md:block"
+            className="w-full lg:w-1/2 relative hidden lg:block"
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-accent to-primary rounded-[2.5rem] transform rotate-3 scale-[1.03] opacity-10"></div>
