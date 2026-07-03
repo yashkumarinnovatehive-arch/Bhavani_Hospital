@@ -1,6 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -16,43 +17,66 @@ const facilitiesList = [
 
 const Facilities = () => {
   return (
-    <section id="facilities" className="py-16 md:py-20 bg-gray-50 border-t border-gray-100">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hospital Infrastructure</h2>
+    <section id="facilities" className="py-24 bg-white relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full bg-slate-100 text-accent font-bold text-sm tracking-widest uppercase mb-4"
+          >
+            Infrastructure
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight"
+          >
+            State-of-the-art <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Facilities</span>
+          </motion.h2>
         </div>
 
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={24}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          className="pb-12"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
-          {facilitiesList.map((facility, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative rounded-xl overflow-hidden shadow-sm h-64 group">
-                <img 
-                  src={facility.image} 
-                  alt={facility.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6">
-                  <h3 className="text-xl font-bold text-white">{facility.name}</h3>
-                  <div className="w-10 h-1 bg-accent mt-2 transform origin-left scale-x-50 group-hover:scale-x-100 transition-transform duration-300"></div>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={32}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true, dynamicBullets: true }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="pb-16"
+          >
+            {facilitiesList.map((facility, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative rounded-[2rem] overflow-hidden shadow-lg h-72 lg:h-80 group border-4 border-white">
+                  <img 
+                    src={facility.image} 
+                    alt={facility.name} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-8 left-8 right-8">
+                    <h3 className="text-2xl font-bold text-white mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">{facility.name}</h3>
+                    <div className="w-12 h-1 bg-accent rounded-full transform origin-left scale-x-50 group-hover:scale-x-100 transition-transform duration-500"></div>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
       </div>
     </section>
   );

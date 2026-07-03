@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0f2b5b;
-  --color-primary-dark: #091a38;
-  --color-secondary: #0ea5e9;
-  --color-accent: #0284c7;
+  --color-primary: #1e3a8a; /* Deep Navy - Trustworthy */
+  --color-primary-dark: #172554;
+  --color-primary-light: #eff6ff; /* Soft Blue Background */
+  --color-secondary: #0ea5e9; /* Light Blue */
+  --color-accent: #0d9488; /* Soft Teal - Caring/Medical */
+  --color-accent-light: #ccfbf1;
   --color-surface: #ffffff;
   --font-sans: 'Outfit', 'Inter', sans-serif;
 }
@@ -14,27 +16,40 @@
     @apply font-sans antialiased text-gray-800 bg-slate-50;
     overflow-x: hidden;
     width: 100%;
+    scroll-behavior: smooth;
   }
 }
 
 /* Custom Scrollbar for premium feel */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f8fafc; 
 }
 ::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 4px;
+  background: #cbd5e1; 
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #94a3b8; 
 }
 
-/* Soft medical pattern background utility */
+/* Premium Background Utilities */
 .bg-medical-pattern {
   background-color: #ffffff;
-  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #ccfbf1 100%);
+}
+
+.bg-glass {
+  @apply bg-white/80 backdrop-blur-md border border-white/40 shadow-xl shadow-primary/5;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
 }

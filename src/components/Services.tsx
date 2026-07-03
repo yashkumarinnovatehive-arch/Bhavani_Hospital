@@ -15,34 +15,63 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="services" className="py-24 bg-slate-50 relative overflow-hidden bg-medical-pattern">
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-light/40 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="text-accent font-semibold tracking-wider uppercase mb-2">Our Services</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Comprehensive Healthcare Solutions</h2>
-          <p className="text-gray-600">We offer a wide range of medical services to ensure that you and your loved ones receive the best possible care under one roof.</p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full bg-white shadow-sm border border-gray-100 text-accent font-bold text-sm tracking-widest uppercase mb-4"
+          >
+            Our Services
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight"
+          >
+            Comprehensive Healthcare <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Solutions</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-gray-600"
+          >
+            We offer a wide range of medical services to ensure that you and your loved ones receive the best possible care under one roof.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-2 hover:border-primary/20 transition-all duration-300 group cursor-pointer relative overflow-hidden"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-white/80 backdrop-blur-md rounded-[2rem] p-8 border border-white shadow-xl shadow-primary/5 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 group cursor-pointer relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-accent/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-light to-accent-light rounded-bl-full -z-10 opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
               
-              <div className="w-14 h-14 bg-blue-50/50 rounded-xl flex items-center justify-center text-2xl text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-inner">
+              <div className="w-16 h-16 bg-white shadow-sm rounded-2xl border border-gray-50 flex items-center justify-center text-3xl text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300 transform group-hover:rotate-6">
                 <service.icon />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-              <p className="text-gray-600 text-sm mb-6 leading-relaxed">{service.desc}</p>
-              <div className="flex items-center text-accent font-semibold text-sm gap-2 opacity-80 group-hover:opacity-100 transition-opacity">
-                <span>Read More</span>
-                <FaArrowRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+              <p className="text-gray-600 text-sm mb-8 leading-relaxed">{service.desc}</p>
+              
+              <div className="flex items-center text-primary font-bold text-sm gap-2 mt-auto">
+                <span className="relative overflow-hidden">
+                  <span className="block transition-transform duration-300 group-hover:-translate-y-full">Read More</span>
+                  <span className="absolute top-0 left-0 text-accent block transition-transform duration-300 translate-y-full group-hover:translate-y-0">Learn More</span>
+                </span>
+                <FaArrowRight size={14} className="text-accent transform group-hover:translate-x-1 transition-transform" />
               </div>
             </motion.div>
           ))}
