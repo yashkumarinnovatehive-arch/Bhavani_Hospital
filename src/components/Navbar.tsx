@@ -17,16 +17,16 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { 
-      name: 'About Us', 
+    {
+      name: 'About Us',
       dropdown: [
         { name: 'About Hospital', path: '#about' },
         { name: 'Gallery', path: '#gallery' },
         { name: 'Testimonials', path: '#testimonials' }
       ]
     },
-    { 
-      name: 'Patient Care', 
+    {
+      name: 'Patient Care',
       dropdown: [
         { name: 'Services', path: '#services' },
         { name: 'Facilities', path: '#facilities' },
@@ -38,23 +38,23 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg py-2 lg:py-3' : 'bg-white/95 backdrop-blur-sm py-3 lg:py-4 border-b border-gray-100/50'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-1 lg:py-2' : 'bg-transparent py-1 lg:py-2'}`}>
       {/* Top Banner (Optional for premium feel) */}
       {!isScrolled && (
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary"></div>
       )}
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex justify-between items-center gap-2">
-          
+
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 lg:gap-3 z-50 group shrink-0">
-            <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md" />
+            <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-12 sm:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md" />
             <div className="flex flex-col justify-center">
-              <h1 className="text-sm sm:text-lg lg:text-xl font-extrabold text-primary tracking-tight leading-tight whitespace-nowrap">
+              <h1 className="text-lg sm:text-xl lg:text-[24px] font-extrabold text-[#1e3a8a] tracking-tight leading-tight whitespace-nowrap">
                 Bhavani Hospital
               </h1>
-              <p className="text-[8px] sm:text-[10px] lg:text-xs text-secondary font-semibold tracking-wider whitespace-nowrap">
+              <p className="text-xs sm:text-sm lg:text-[14px] text-[#0ea5e9] font-bold tracking-wider whitespace-nowrap mt-0.5">
                 Best of care, close to home
               </p>
             </div>
@@ -66,7 +66,7 @@ const Navbar = () => {
               <div key={index} className="relative group">
                 {item.dropdown ? (
                   <>
-                    <button className="flex items-center gap-1.5 text-gray-700 font-semibold hover:text-primary transition-colors text-[14px] 2xl:text-base whitespace-nowrap py-4 focus:outline-none">
+                    <button className="flex items-center gap-1.5 text-[#334155] font-semibold hover:text-primary transition-colors text-[14px] lg:text-[15px] 2xl:text-base whitespace-nowrap py-4 focus:outline-none">
                       {item.name}
                       <FaChevronDown size={10} className="text-gray-400 group-hover:text-primary transition-transform duration-300 group-hover:rotate-180" />
                     </button>
@@ -74,8 +74,8 @@ const Navbar = () => {
                     <div className="absolute top-[100%] left-1/2 -translate-x-1/2 w-48 bg-white rounded-xl shadow-xl shadow-primary/5 border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden">
                       <div className="py-2">
                         {item.dropdown.map((sub, subIdx) => (
-                          <a 
-                            key={subIdx} 
+                          <a
+                            key={subIdx}
                             href={sub.path}
                             className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-primary/5 hover:text-primary transition-colors"
                           >
@@ -86,9 +86,9 @@ const Navbar = () => {
                     </div>
                   </>
                 ) : (
-                  <a 
+                  <a
                     href={item.path}
-                    className="text-gray-700 font-semibold hover:text-primary transition-colors text-[14px] 2xl:text-base whitespace-nowrap py-4"
+                    className="text-[#334155] font-semibold hover:text-primary transition-colors text-[14px] lg:text-[15px] 2xl:text-base whitespace-nowrap py-4"
                   >
                     {item.name}
                   </a>
@@ -99,17 +99,20 @@ const Navbar = () => {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-2 lg:space-x-4 shrink-0">
-            <a href="tel:+917796655655" className="flex items-center gap-1.5 lg:gap-2 text-primary border border-primary px-3 py-1.5 lg:px-4 lg:py-2 rounded-full font-medium hover:bg-primary/5 transition-colors text-xs lg:text-sm whitespace-nowrap">
+            <a href="#packages" className="bg-orange-500 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full font-medium hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg text-xs lg:text-sm whitespace-nowrap">
+              Health Packages
+            </a>
+            <a href="#appointment" className="bg-primary text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full font-medium hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg text-xs lg:text-sm whitespace-nowrap">
+              Book Appointment
+            </a>
+            <a href="tel:+917796655655" className="flex items-center gap-1.5 lg:gap-2 text-primary border border-primary px-3 py-1.5 lg:px-5 lg:py-2 rounded-full font-medium hover:bg-primary/5 transition-colors text-xs lg:text-sm whitespace-nowrap">
               <FaPhoneAlt size={12} className="lg:w-3.5 lg:h-3.5" />
               <span>Call Now</span>
-            </a>
-            <a href="#appointment" className="bg-primary text-white px-4 py-1.5 lg:px-6 lg:py-2 rounded-full font-medium hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg text-xs lg:text-sm whitespace-nowrap">
-              Book Appointment
             </a>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="xl:hidden text-gray-700 text-2xl focus:outline-none shrink-0 ml-2"
             onClick={() => setIsMobileMenuOpen(true)}
           >
@@ -121,7 +124,7 @@ const Navbar = () => {
       {/* Mobile Menu Backdrop */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -135,7 +138,7 @@ const Navbar = () => {
       {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ x: '100%', opacity: 0.5 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: '100%', opacity: 0.5 }}
@@ -144,7 +147,7 @@ const Navbar = () => {
           >
             <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
               <span className="font-extrabold text-xl text-primary">Menu</span>
-              <button 
+              <button
                 className="text-gray-400 hover:text-primary transition-colors focus:outline-none p-2 -mr-2 rounded-full hover:bg-primary/10"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -161,8 +164,8 @@ const Navbar = () => {
                         {item.name}
                       </div>
                       {item.dropdown.map((sub, subIdx) => (
-                        <a 
-                          key={subIdx} 
+                        <a
+                          key={subIdx}
                           href={sub.path}
                           className="text-gray-700 font-semibold hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all text-base"
                           onClick={() => setIsMobileMenuOpen(false)}
@@ -172,7 +175,7 @@ const Navbar = () => {
                       ))}
                     </div>
                   ) : (
-                    <a 
+                    <a
                       href={item.path}
                       className="block text-gray-800 font-bold hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all text-lg"
                       onClick={() => setIsMobileMenuOpen(false)}
@@ -183,7 +186,7 @@ const Navbar = () => {
                 </React.Fragment>
               ))}
             </div>
-            
+
             <div className="p-6 border-t border-gray-100 bg-gray-50/50 space-y-3">
               <a href="tel:+917796655655" className="flex items-center justify-center gap-2 text-primary border-2 border-primary/20 bg-white px-4 py-3.5 rounded-xl font-bold hover:bg-primary/5 transition-colors text-base shadow-sm">
                 <FaPhoneAlt size={16} />

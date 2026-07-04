@@ -4,11 +4,13 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Highlights from './components/Highlights';
 import About from './components/About';
+import ManagementMessage from './components/ManagementMessage';
 import Doctors from './components/Doctors';
 import Services from './components/Services';
 import WhyChooseUs from './components/WhyChooseUs';
 import OPD from './components/OPD';
 import Facilities from './components/Facilities';
+import Packages from './components/Packages';
 import Gallery from './components/Gallery';
 import Appointment from './components/Appointment';
 import Testimonials from './components/Testimonials';
@@ -21,11 +23,13 @@ const Home = () => (
     <Hero />
     <Highlights />
     <About />
+    <ManagementMessage />
     <Doctors />
     <Services />
     <WhyChooseUs />
     <OPD />
     <Facilities />
+    <Packages />
     <Gallery />
     <Appointment />
     <Testimonials />

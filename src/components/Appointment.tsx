@@ -34,7 +34,7 @@ const Appointment = () => {
     <section id="appointment" className="py-20 bg-gray-50 relative">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 bg-white rounded-3xl shadow-2xl overflow-hidden">
-          
+
           {/* Left: Image/Info */}
           <div className="w-full lg:w-2/5 bg-primary relative p-10 flex flex-col justify-center text-white">
             <div className="absolute inset-0 bg-medical-pattern opacity-10"></div>
@@ -43,7 +43,7 @@ const Appointment = () => {
               <p className="text-gray-200 mb-8 leading-relaxed">
                 Skip the waiting line by booking your appointment online. Our team will get back to you to confirm your slot.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
@@ -54,7 +54,7 @@ const Appointment = () => {
                     <p className="text-sm text-gray-200">Choose your preferred time</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                     <FaWhatsapp size={20} />
@@ -74,7 +74,7 @@ const Appointment = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Patient Name *</label>
-                  <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="John Doe" />
+                  <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Dr. Omprakash Todakari" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
@@ -103,7 +103,7 @@ const Appointment = () => {
                   <input type="time" name="time" value={formData.time} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none" />
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Message (Optional)</label>
                 <textarea name="message" rows={3} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none" placeholder="Briefly describe your medical issue..."></textarea>
