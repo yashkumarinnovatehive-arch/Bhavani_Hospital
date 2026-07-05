@@ -91,7 +91,7 @@ const ManagementMessage = () => {
               480: { slidesPerView: 1.5 },
               640: { slidesPerView: 2.2, centeredSlides: false },
             }}
-            className="pb-14"
+            className="equal-height-slider pb-14"
           >
             {values.map((value, index) => (
               <SwiperSlide key={index}>
@@ -100,13 +100,13 @@ const ManagementMessage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover-glow transition-all duration-300 h-full group"
+                  className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover-glow transition-all duration-300 items-center group"
                 >
-                  <div className={`w-16 h-16 mx-auto bg-gradient-to-br ${value.gradient} text-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${value.gradient} text-white rounded-2xl flex flex-shrink-0 items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 mx-auto`}>
                     <value.icon />
                   </div>
                   <h4 className="text-lg font-bold text-gray-900 mb-3">{value.title}</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed flex-grow">{value.description}</p>
                 </motion.div>
               </SwiperSlide>
             ))}
@@ -122,13 +122,13 @@ const ManagementMessage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover-glow hover:-translate-y-2 transition-all duration-300 group"
+              className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover-glow hover:-translate-y-2 transition-all duration-300 h-full flex flex-col items-center group"
             >
-              <div className={`w-16 h-16 mx-auto bg-gradient-to-br ${value.gradient} text-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300`}>
+              <div className={`w-16 h-16 bg-gradient-to-br ${value.gradient} text-white rounded-2xl flex flex-shrink-0 items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300`}>
                 <value.icon />
               </div>
               <h4 className="text-lg font-bold text-gray-900 mb-3">{value.title}</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+              <p className="text-gray-600 text-sm leading-relaxed flex-grow">{value.description}</p>
             </motion.div>
           ))}
         </div>

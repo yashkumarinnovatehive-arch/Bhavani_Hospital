@@ -60,24 +60,22 @@ const Services = () => {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={24}
           slidesPerView={1}
+          speed={600}
+          grabCursor={true}
           navigation
           pagination={{ clickable: true, dynamicBullets: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
           breakpoints={{
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
             1280: { slidesPerView: 4 },
           }}
-          className="services-slider pb-16 px-4"
+          className="equal-height-slider services-slider pb-16 px-4"
         >
           {services.map((service, index) => (
             <SwiperSlide key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="relative bg-white/95 backdrop-blur-md rounded-2xl p-7 border border-white/80 shadow-lg shadow-primary/5 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-3 transition-all duration-300 group cursor-pointer overflow-hidden h-full flex flex-col my-4 mb-8"
+              <div
+                className="relative bg-white/95 backdrop-blur-md rounded-2xl p-7 border border-white/80 shadow-lg shadow-primary/5 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-3 transition-all duration-300 group overflow-hidden will-change-transform"
               >
                 {/* Large faded number */}
                 <span className="absolute top-3 right-5 text-7xl font-extrabold text-gray-100 group-hover:text-primary/[0.06] transition-colors select-none pointer-events-none">
@@ -93,16 +91,16 @@ const Services = () => {
                 </div>
 
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors relative z-10">{service.title}</h3>
-                <p className="text-gray-500 text-sm mb-6 leading-relaxed flex-grow relative z-10">{service.desc}</p>
+                <p className="text-gray-500 text-sm mb-6 leading-relaxed flex-grow line-clamp-3 relative z-10">{service.desc}</p>
 
-                <div className="flex items-center text-primary font-bold text-sm gap-2 mt-auto relative z-10">
+                <a href="#appointment" className="flex items-center text-primary font-bold text-sm gap-2 mt-auto relative z-10 w-fit cursor-pointer outline-none">
                   <span className="relative overflow-hidden">
                     <span className="block transition-transform duration-300 group-hover:-translate-y-full">Read More</span>
-                    <span className="absolute top-0 left-0 text-accent block transition-transform duration-300 translate-y-full group-hover:translate-y-0">Learn More</span>
+                    <span className="absolute top-0 left-0 text-accent block transition-transform duration-300 translate-y-full group-hover:translate-y-0">Book Now</span>
                   </span>
                   <FaArrowRight size={12} className="text-accent transform group-hover:translate-x-2 transition-transform duration-300" />
-                </div>
-              </motion.div>
+                </a>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

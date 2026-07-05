@@ -18,6 +18,15 @@
     width: 100%;
     scroll-behavior: smooth;
   }
+
+  /* Promote animated elements to own compositor layer */
+  section {
+    contain: layout style;
+  }
+
+  img {
+    content-visibility: auto;
+  }
 }
 
 /* ==========================================
@@ -92,10 +101,15 @@
 }
 
 @keyframes blob-morph {
-  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%; }
-  75% { border-radius: 40% 30% 60% 50% / 60% 70% 40% 30%; }
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0, 0); }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(2px, -3px); }
+  50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%; transform: translate(-2px, 2px); }
+  75% { border-radius: 40% 30% 60% 50% / 60% 70% 40% 30%; transform: translate(1px, -1px); }
+}
+
+@keyframes wa-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(34,197,94,0.4); }
+  50% { transform: scale(1.08); box-shadow: 0 16px 40px rgba(34,197,94,0.6); }
 }
 
 @keyframes bounce-slow {
@@ -124,26 +138,32 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-float-slow {
   animation: float-slow 8s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-float-reverse {
   animation: float-reverse 7s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-glow-pulse {
   animation: glow-pulse 3s ease-in-out infinite;
+  will-change: box-shadow;
 }
 
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+  will-change: transform;
 }
 
 .animate-pulse-ring {
   animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  will-change: transform, opacity;
 }
 
 .animate-gradient-shift {
@@ -152,15 +172,23 @@
 }
 
 .animate-blob-morph {
-  animation: blob-morph 8s ease-in-out infinite;
+  animation: blob-morph 10s ease-in-out infinite;
+  will-change: transform, border-radius;
 }
 
 .animate-bounce-slow {
   animation: bounce-slow 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-blob {
   animation: blob-morph 7s infinite;
+  will-change: transform, border-radius;
+}
+
+.animate-wa-pulse {
+  animation: wa-pulse 2.4s ease-in-out infinite;
+  will-change: transform, box-shadow;
 }
 
 /* Animation delays */
@@ -417,4 +445,35 @@
 .swiper-button-prev:hover {
   color: #1e3a8a !important;
   transform: scale(1.15);
+}
+
+/* ==========================================
+   SWIPER EQUAL-HEIGHT CARDS
+   Apply .equal-height-slider to <Swiper> to
+   guarantee every slide + card is identical.
+   ========================================== */
+.equal-height-slider .swiper-wrapper {
+  align-items: stretch !important;
+}
+.equal-height-slider .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
+.equal-height-slider .swiper-slide > * {
+  width: 100%;
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Allow floating elements (avatars, badges) to
+   overflow above/below the Swiper container
+   without being clipped, while keeping
+   horizontal overflow hidden for proper sliding. */
+.equal-height-slider.swiper {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+.equal-height-slider .swiper-wrapper {
+  overflow: visible !important;
 }

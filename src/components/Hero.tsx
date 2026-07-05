@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhoneAlt, FaCalendarCheck, FaHeartbeat, FaUserMd, FaHospital, FaSmile, FaStethoscope, FaSyringe, FaShieldAlt } from 'react-icons/fa';
 
-/* ── Animated Counter Hook ── */
-const useCounter = (end: number, duration = 2000, startOnView = true) => {
+/* ── Animated Counter Hook (fixed: NOT called inside .map) ── */
+const useCounter = (end: number, duration = 1800) => {
   const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(!startOnView);
+  const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    if (!startOnView) return;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setStarted(true); },
-      { threshold: 0.5 }
+      { threshold: 0.4 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [startOnView]);
+  }, []);
 
   useEffect(() => {
     if (!started) return;
@@ -24,14 +24,50 @@ const useCounter = (end: number, duration = 2000, startOnView = true) => {
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      setCount(Math.floor(progress * end));
-      if (progress < 1) requestAnimationFrame(animate);
+      // Ease-out cubic for smoother deceleration
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * end));
+      if (progress < 1) rafRef.current = requestAnimationFrame(animate);
     };
-    requestAnimationFrame(animate);
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
   }, [started, end, duration]);
 
   return { count, ref };
 };
+
+/* ── Individual stat card so each has its own counter hook ── */
+interface StatItem {
+  icon: React.ElementType;
+  end: number;
+  suffix: string;
+  label: string;
+}
+
+const StatCard: React.FC<{ stat: StatItem; index: number }> = ({ stat, index }) => {
+  const { count, ref } = useCounter(stat.end, 1800);
+  return (
+    <div
+      ref={ref}
+      className="stat-card bg-glass-card rounded-2xl p-6 text-center hover-glow hover:-translate-y-1 transition-all duration-300 group cursor-default"
+    >
+      <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-primary text-xl group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-300 will-change-transform">
+        <stat.icon />
+      </div>
+      <div className="text-3xl font-extrabold text-gray-900 tracking-tight tabular-nums">
+        {count}{stat.suffix}
+      </div>
+      <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-1">{stat.label}</div>
+    </div>
+  );
+};
+
+const stats: StatItem[] = [
+  { icon: FaHospital, end: 4, suffix: '+', label: 'Years of Excellence' },
+  { icon: FaSmile, end: 10, suffix: 'k+', label: 'Happy Patients' },
+  { icon: FaUserMd, end: 5, suffix: '+', label: 'Expert Doctors' },
+  { icon: FaHeartbeat, end: 24, suffix: '/7', label: 'Emergency Care' },
+];
 
 const Hero = () => {
   /* Typing animation */
@@ -48,21 +84,13 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-
-  const stats = [
-    { icon: FaHospital, end: 4, suffix: '+', label: 'Years of Excellence' },
-    { icon: FaSmile, end: 10, suffix: 'k+', label: 'Happy Patients' },
-    { icon: FaUserMd, end: 5, suffix: '+', label: 'Expert Doctors' },
-    { icon: FaHeartbeat, end: 24, suffix: '/7', label: 'Emergency Care' },
-  ];
-
   return (
     <section id="home" className="relative min-h-[100svh] pt-16 lg:pt-20 pb-16 flex items-center bg-hero-gradient overflow-hidden">
 
-      {/* ── Animated Blobs ── */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-accent-light/60 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob-morph"></div>
-      <div className="absolute top-40 right-10 w-80 h-80 bg-gradient-to-br from-blue-100/60 to-primary-light/40 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob-morph animation-delay-2000"></div>
-      <div className="absolute -bottom-8 left-40 w-64 h-64 bg-gradient-to-br from-teal-50/50 to-accent-light/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob-morph animation-delay-4000"></div>
+      {/* ── Animated Blobs (GPU-accelerated, will-change) ── */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-accent-light/60 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob-morph will-change-transform" />
+      <div className="absolute top-40 right-10 w-80 h-80 bg-gradient-to-br from-blue-100/60 to-primary-light/40 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob-morph animation-delay-2000 will-change-transform" />
+      <div className="absolute -bottom-8 left-40 w-64 h-64 bg-gradient-to-br from-teal-50/50 to-accent-light/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob-morph animation-delay-4000 will-change-transform" />
 
       {/* ── Floating Medical Icons ── */}
       <FaStethoscope className="floating-icon text-primary text-7xl top-[15%] left-[8%] animate-float-slow" />
@@ -78,7 +106,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-glass-card shadow-sm mb-8"
             >
               <span className="relative flex h-3 w-3">
@@ -91,7 +119,7 @@ const Hero = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-gray-900 mb-6 tracking-tight"
             >
               {typedText}
@@ -102,7 +130,7 @@ const Hero = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
             >
               Experience world-class healthcare with compassionate doctors, state-of-the-art facilities, and treatment you can trust—right here in Pune.
@@ -111,7 +139,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <a
@@ -134,7 +162,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-wrap gap-3 mt-10"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-green-200 shadow-sm">
@@ -152,7 +180,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
             className="relative mt-8 lg:mt-0 block"
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/15 border-4 border-white aspect-[4/3] lg:aspect-auto animate-glow-pulse">
@@ -160,15 +188,16 @@ const Hero = () => {
                 src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
                 alt="Modern Hospital Facility"
                 className="w-full h-full lg:h-[500px] object-cover"
+                loading="eager"
+                fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/10 to-transparent"></div>
             </div>
 
-
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
               className="absolute -top-4 -right-4 bg-glass p-4 rounded-2xl shadow-xl z-20 animate-float-slow hidden md:flex items-center gap-3"
             >
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-sm shadow-lg">
@@ -185,29 +214,14 @@ const Hero = () => {
 
         {/* ── Stats Counter Bar ── */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
         >
-          {stats.map((stat, index) => {
-            const { count, ref } = useCounter(stat.end, 1500);
-            return (
-              <div
-                key={index}
-                ref={ref}
-                className="stat-card bg-glass-card rounded-2xl p-6 text-center hover-glow hover:-translate-y-1 transition-all duration-300 group cursor-default"
-              >
-                <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-primary text-xl group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-300">
-                  <stat.icon />
-                </div>
-                <div className="text-3xl font-extrabold text-gray-900 tracking-tight">
-                  {count}{stat.suffix}
-                </div>
-                <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-1">{stat.label}</div>
-              </div>
-            );
-          })}
+          {stats.map((stat, index) => (
+            <StatCard key={index} stat={stat} index={index} />
+          ))}
         </motion.div>
       </div>
     </section>

@@ -66,9 +66,11 @@ const Gallery = () => {
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
+            speed={700}
+            grabCursor={true}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
             breakpoints={{
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
@@ -83,6 +85,7 @@ const Gallery = () => {
                     alt={img.alt} 
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                   {/* Gradient Overlay for text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>

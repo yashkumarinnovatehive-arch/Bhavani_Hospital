@@ -78,25 +78,23 @@ const Doctors = () => {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={32}
           slidesPerView={1}
+          speed={600}
+          grabCursor={true}
           navigation
           pagination={{ clickable: true, dynamicBullets: true }}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
           centerInsufficientSlides={true}
           breakpoints={{
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
             1280: { slidesPerView: 4 },
           }}
-          className="doctors-slider pb-16 px-4"
+          className="equal-height-slider doctors-slider pb-16 px-4"
         >
           {doctorsList.map((doctor, index) => (
             <SwiperSlide key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg shadow-primary/5 border border-gray-50 hover-glow hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col items-center my-4 mb-8 relative overflow-hidden group"
+              <div
+                className="bg-white rounded-2xl p-6 shadow-lg shadow-primary/5 border border-gray-50 hover-glow hover:-translate-y-2 transition-all duration-300 text-center items-center relative overflow-hidden group will-change-transform"
               >
                 {/* Top gradient accent */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
@@ -117,6 +115,7 @@ const Doctors = () => {
                       alt={doctor.name}
                       className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110"
                       loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(doctor.name)}&background=1e3a8a&color=fff&size=512`;
                       }}
@@ -127,7 +126,7 @@ const Doctors = () => {
                   </div>
                 </div>
 
-                <div className="text-center w-full flex-1 flex flex-col">
+                <div className="text-center w-full flex-grow flex flex-col">
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{doctor.name}</h3>
                   {doctor.degree && (
                     <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent font-bold text-sm mb-0.5">{doctor.degree}</p>
@@ -145,7 +144,7 @@ const Doctors = () => {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

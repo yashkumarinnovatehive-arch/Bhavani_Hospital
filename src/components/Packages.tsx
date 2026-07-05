@@ -63,7 +63,7 @@ const packages = [
 
 const Packages = () => {
   return (
-    <section id="packages" className="py-24 bg-gray-50">
+    <section id="packages" className="py-24 bg-slate-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -107,26 +107,26 @@ const Packages = () => {
             768: { slidesPerView: 2.2, centeredSlides: false },
             1024: { slidesPerView: 3, centeredSlides: false },
           }}
-          className="pb-16 pt-8 px-4"
+          className="equal-height-slider pb-16 pt-8 px-4"
         >
           {packages.map((pkg, index) => (
-            <SwiperSlide key={pkg.id} className="h-auto">
+            <SwiperSlide key={pkg.id}>
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className={`relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col h-full border-2 mt-6 ${pkg.popular ? 'border-primary md:-translate-y-2' : 'border-transparent'}`}
+                className={`relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 mt-4 ${pkg.popular ? 'border-primary' : 'border-transparent'}`}
               >
                 {pkg.popular && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary to-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary to-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-md z-10">
                     Most Popular
                   </div>
                 )}
                 
                 <div className="mb-6 text-center">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
-                  <p className="text-gray-500 text-sm h-10 mb-4">{pkg.description}</p>
+                  <p className="text-gray-500 text-sm line-clamp-2 mb-4">{pkg.description}</p>
                   <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r hover:scale-105 transition-transform duration-300 inline-block pb-1" style={{ backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))` }}>
                     <span className={`bg-gradient-to-r ${pkg.color} bg-clip-text text-transparent`}>
                       {pkg.price}
@@ -134,7 +134,7 @@ const Packages = () => {
                   </div>
                 </div>
 
-                <div className="flex-1 space-y-4 mb-8">
+                <div className="flex-grow space-y-4 mb-8">
                   {pkg.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className={`mt-1 w-5 h-5 rounded-full flex items-center justify-center shrink-0 bg-opacity-10`} style={{ color: pkg.popular ? '#0ea5e9' : '#6b7280', backgroundColor: pkg.popular ? 'rgba(14, 165, 233, 0.1)' : 'rgba(107, 114, 128, 0.1)' }}>

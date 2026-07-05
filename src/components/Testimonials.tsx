@@ -93,17 +93,19 @@ const Testimonials = () => {
             modules={[Pagination, Autoplay]}
             spaceBetween={32}
             slidesPerView={1}
+            speed={600}
+            grabCursor={true}
             breakpoints={{
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
             pagination={{ clickable: true, dynamicBullets: true }}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
-            className="pb-20"
+            autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            className="equal-height-slider pb-20 pt-12"
           >
             {testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index} className="h-auto">
-                <div className="relative bg-white/90 backdrop-blur-md p-8 md:p-9 rounded-2xl border border-white/80 shadow-lg shadow-primary/5 mt-10 h-full pt-14 group hover:-translate-y-2 hover-glow transition-all duration-300 flex flex-col">
+              <SwiperSlide key={index}>
+                <div className="relative bg-white/90 backdrop-blur-md p-8 md:p-9 rounded-2xl border border-white/80 shadow-lg shadow-primary/5 pt-14 group hover:-translate-y-2 hover-glow transition-all duration-300">
 
                   {/* Gradient top border */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${testimonial.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
@@ -116,21 +118,19 @@ const Testimonials = () => {
                   {/* Quote icon */}
                   <FaQuoteLeft className="absolute top-10 right-8 text-primary/[0.04] text-7xl transform -rotate-12 group-hover:rotate-0 group-hover:text-primary/[0.08] transition-all duration-500" />
 
-                  <div className="flex-grow flex flex-col relative z-10">
-                    <div className="flex text-yellow-400 mb-5 text-sm gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <FaStar key={i} className={`${i < testimonial.rating ? "text-yellow-400" : "text-gray-200"} ${i < testimonial.rating ? 'animate-pulse' : ''}`} style={{ animationDelay: `${i * 0.1}s`, animationDuration: '3s' }} />
-                      ))}
-                    </div>
-                    <p className="text-gray-600 mb-8 text-sm leading-relaxed italic flex-grow relative z-10">"{testimonial.review}"</p>
+                  <div className="flex text-yellow-400 mb-5 text-sm gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < testimonial.rating ? 'text-yellow-400' : 'text-gray-200'} />
+                    ))}
+                  </div>
+                  <p className="text-gray-600 mb-8 text-sm leading-relaxed italic flex-grow line-clamp-4 relative z-10">"{testimonial.review}"</p>
 
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-extrabold text-gray-900 text-base">{testimonial.name}</h4>
-                        <span className="text-xs text-accent font-semibold tracking-wide">Verified Patient</span>
-                      </div>
-                      <FaGoogle className="text-gray-300 text-lg" />
+                  <div className="flex items-center justify-between mt-auto">
+                    <div>
+                      <h4 className="font-extrabold text-gray-900 text-base">{testimonial.name}</h4>
+                      <span className="text-xs text-accent font-semibold tracking-wide">Verified Patient</span>
                     </div>
+                    <FaGoogle className="text-gray-300 text-lg" />
                   </div>
                 </div>
               </SwiperSlide>
