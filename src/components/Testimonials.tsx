@@ -39,7 +39,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-24 bg-slate-50 relative overflow-hidden wave-divider wave-divider-top">
+    <section id="testimonials" className="pt-8 pb-8 bg-slate-50 relative overflow-hidden wave-divider wave-divider-top">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-light/40 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
       <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-accent-light/20 rounded-full blur-3xl -z-10"></div>
       <div className="absolute inset-0 bg-dot-pattern opacity-20 -z-10"></div>

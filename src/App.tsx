@@ -2,13 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Highlights from './components/Highlights';
 import About from './components/About';
 import ManagementMessage from './components/ManagementMessage';
 import Doctors from './components/Doctors';
 import Services from './components/Services';
 import WhyChooseUs from './components/WhyChooseUs';
-import OPD from './components/OPD';
 import Facilities from './components/Facilities';
 import Packages from './components/Packages';
 import Gallery from './components/Gallery';
@@ -21,13 +19,11 @@ const Home = () => (
   <div className="min-h-screen font-sans overflow-x-hidden">
     <Navbar />
     <Hero />
-    <Highlights />
     <About />
     <ManagementMessage />
     <Doctors />
     <Services />
     <WhyChooseUs />
-    <OPD />
     <Facilities />
     <Packages />
     <Gallery />

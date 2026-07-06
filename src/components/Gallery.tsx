@@ -19,7 +19,7 @@ const galleryImages = [
 
 const Gallery = () => {
   return (
-    <section id="gallery" className="py-16 md:py-20 bg-white">
+    <section id="gallery" className="pt-8 md:pt-10 pb-4 bg-white">
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="text-accent font-semibold tracking-wider uppercase mb-2">Our Gallery</div>

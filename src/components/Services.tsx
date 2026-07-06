@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaStethoscope, FaBaby, FaLeaf, FaSyringe, FaHeartbeat, FaVial, FaShieldAlt, FaAmbulance, FaArrowRight } from 'react-icons/fa';
+import { FaStethoscope, FaBaby, FaLeaf, FaUserMd, FaHandHoldingUsd, FaAmbulance, FaArrowRight, FaSyringe, FaHeartbeat, FaVial, FaShieldAlt } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -8,19 +8,24 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const services = [
-  { icon: FaStethoscope, title: 'General Consultation', desc: 'Comprehensive medical checkups and primary care for all age groups.', gradient: 'from-primary to-blue-500' },
-  { icon: FaBaby, title: 'Child Care', desc: 'Specialized pediatric care, from routine checkups to specialized treatments.', gradient: 'from-pink-500 to-rose-400' },
-  { icon: FaLeaf, title: 'Ayurvedic Treatment', desc: 'Traditional holistic healing approaches and Panchakarma therapies.', gradient: 'from-green-500 to-emerald-400' },
+  // Key Features & Practitioners
+  { icon: FaUserMd, title: 'Experienced Doctors', desc: 'Our team of 5+ experienced doctors provides expert medical care across multiple specialties.', gradient: 'from-primary to-blue-500' },
+  { icon: FaStethoscope, title: 'General Physician', desc: 'Comprehensive medical consultations and primary care for all age groups by 2 skilled physicians.', gradient: 'from-secondary to-cyan-400' },
+  { icon: FaBaby, title: 'Child Specialist', desc: 'Specialized pediatric care for your little ones, from routine checkups to specialized treatments.', gradient: 'from-pink-500 to-rose-400' },
+  { icon: FaLeaf, title: 'Ayurveda Consultant', desc: 'Traditional holistic healing approaches and Panchakarma therapies by our Ayurveda expert.', gradient: 'from-green-500 to-emerald-400' },
+  { icon: FaHandHoldingUsd, title: 'Affordable Treatment', desc: 'Quality healthcare at affordable prices, making medical care accessible to everyone.', gradient: 'from-accent to-teal-400' },
+  { icon: FaAmbulance, title: 'Emergency Support', desc: '24/7 emergency medical services with immediate response and round-the-clock care.', gradient: 'from-red-500 to-orange-400' },
+  
+  // Specific Medical Services
   { icon: FaSyringe, title: 'General Surgery', desc: 'Advanced surgical procedures performed by experienced surgeons.', gradient: 'from-purple-500 to-indigo-400' },
   { icon: FaHeartbeat, title: 'Health Checkup', desc: 'Preventive health screening packages tailored for your specific needs.', gradient: 'from-red-500 to-orange-400' },
   { icon: FaVial, title: 'Vaccination', desc: 'Complete immunization schedules for children and adults.', gradient: 'from-secondary to-cyan-400' },
   { icon: FaShieldAlt, title: 'Preventive Care', desc: 'Proactive healthcare management to prevent future medical issues.', gradient: 'from-accent to-teal-400' },
-  { icon: FaAmbulance, title: 'Emergency Care', desc: '24/7 emergency medical services with immediate response.', gradient: 'from-red-600 to-red-400' },
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-slate-50 relative overflow-hidden wave-divider wave-divider-top wave-divider-bottom">
+    <section id="services" className="pt-8 pb-8 bg-slate-50 relative overflow-hidden wave-divider wave-divider-top wave-divider-bottom">
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-light/40 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-light/30 rounded-full blur-3xl -z-10 -translate-x-1/3 translate-y-1/3"></div>
       {/* Dot pattern overlay */}

@@ -13,7 +13,7 @@ const highlights = [
 
 const Highlights = () => {
   return (
-    <section className="relative z-20 mt-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-12">
+    <section className="relative z-20 mt-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-4">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5">
         {highlights.map((item, index) => (
           <motion.div

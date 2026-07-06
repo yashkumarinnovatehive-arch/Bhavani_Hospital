@@ -85,7 +85,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-[100svh] pt-16 lg:pt-20 pb-16 flex items-center bg-hero-gradient overflow-hidden">
+    <section id="home" className="relative min-h-[100svh] pt-16 lg:pt-20 pb-6 flex items-center bg-hero-gradient overflow-hidden">
 
       {/* ── Animated Blobs (GPU-accelerated, will-change) ── */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-accent-light/60 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob-morph will-change-transform" />
@@ -217,7 +217,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
+          className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
         >
           {stats.map((stat, index) => (
             <StatCard key={index} stat={stat} index={index} />

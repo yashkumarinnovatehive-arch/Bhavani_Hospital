@@ -48,7 +48,7 @@ const Doctors = () => {
   const [activeTab, setActiveTab] = useState('about');
 
   return (
-    <section id="doctors" className="py-24 bg-slate-50 relative overflow-hidden wave-divider wave-divider-top wave-divider-bottom">
+    <section id="doctors" className="pt-8 pb-12 bg-slate-50 relative overflow-hidden wave-divider wave-divider-top wave-divider-bottom">
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-accent-light/30 rounded-full blur-3xl -z-10 -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-primary-light/30 rounded-full blur-3xl -z-10 translate-x-1/3"></div>
       <div className="absolute inset-0 bg-dot-pattern opacity-20 -z-10"></div>

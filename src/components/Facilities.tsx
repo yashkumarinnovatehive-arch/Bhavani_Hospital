@@ -17,7 +17,7 @@ const facilitiesList = [
 
 const Facilities = () => {
   return (
-    <section id="facilities" className="py-24 bg-white relative overflow-hidden wave-divider wave-divider-slate-bottom">
+    <section id="facilities" className="pt-8 pb-8 bg-white relative overflow-hidden wave-divider wave-divider-slate-bottom">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-light/20 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -48,27 +48,6 @@ const Facilities = () => {
           transition={{ duration: 0.8 }}
         >
           <style>{`
-            .custom-slider .swiper-button-next,
-            .custom-slider .swiper-button-prev {
-              background: white !important;
-              color: #1e3a8a !important;
-              box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
-              width: 44px !important;
-              height: 44px !important;
-              border-radius: 50% !important;
-              border: 1px solid rgba(0,0,0,0.05) !important;
-            }
-            .custom-slider .swiper-button-next::after,
-            .custom-slider .swiper-button-prev::after {
-              font-size: 1rem !important;
-              font-weight: 700 !important;
-            }
-            .custom-slider .swiper-button-next:hover,
-            .custom-slider .swiper-button-prev:hover {
-              background: #1e3a8a !important;
-              color: white !important;
-              transform: scale(1.1);
-            }
             .custom-slider .swiper-pagination-bullet-active {
               background: #1e3a8a !important;
             }

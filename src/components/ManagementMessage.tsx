@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaUserMd, FaShieldAlt, FaHeart, FaUsers } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaUserMd, FaShieldAlt, FaHeart, FaUsers, FaChevronDown } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -34,8 +34,10 @@ const values = [
 ];
 
 const ManagementMessage = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <section id="management-message" className="py-20 bg-gray-50">
+    <section id="management-message" className="pt-8 pb-8 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         
         {/* Main Content */}
@@ -52,15 +54,39 @@ const ManagementMessage = () => {
               <p>
                 At Bhavani Hospital, our mission is to provide healthcare that combines clinical excellence with compassion, integrity, and respect. We understand that every patient who walks through our doors places their trust in us, and we are committed to honoring that trust by delivering safe, ethical, and personalized medical care.
               </p>
-              <p>
-                Our dedicated team of doctors, nurses, and healthcare professionals works tirelessly to ensure that every patient receives the highest standard of treatment in a caring and comfortable environment.
-              </p>
-              <p>
-                We continually invest in modern medical technology, skilled professionals, and quality improvement initiatives to meet the evolving healthcare needs of our community.
-              </p>
-              <p>
-                Healthcare is more than treating illnesses—it's about promoting wellness, supporting families, and building healthier communities. At Bhavani Hospital, we strive to be your trusted healthcare partner through every stage of life.
-              </p>
+              
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4 overflow-hidden"
+                  >
+                    <p>
+                      Our dedicated team of doctors, nurses, and healthcare professionals works tirelessly to ensure that every patient receives the highest standard of treatment in a caring and comfortable environment.
+                    </p>
+                    <p>
+                      We continually invest in modern medical technology, skilled professionals, and quality improvement initiatives to meet the evolving healthcare needs of our community.
+                    </p>
+                    <p>
+                      Healthcare is more than treating illnesses—it's about promoting wellness, supporting families, and building healthier communities. At Bhavani Hospital, we strive to be your trusted healthcare partner through every stage of life.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:text-accent transition-colors mt-2 group"
+              >
+                {isExpanded ? 'Show Less' : 'Read More'}
+                <FaChevronDown 
+                  className={`transform transition-transform duration-300 group-hover:translate-y-0.5 ${isExpanded ? 'rotate-180' : ''}`} 
+                  size={12} 
+                />
+              </button>
             </div>
           </div>
           

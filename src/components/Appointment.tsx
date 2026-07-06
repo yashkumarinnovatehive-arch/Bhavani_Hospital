@@ -31,9 +31,9 @@ const Appointment = () => {
   };
 
   return (
-    <section id="appointment" className="py-20 bg-white relative">
+    <section id="appointment" className="pt-8 pb-20 bg-white relative">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-12 bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-2xl overflow-hidden">
 
           {/* Left: Image/Info */}
           <div className="w-full lg:w-2/5 bg-primary relative p-10 flex flex-col justify-center text-white">

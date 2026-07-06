@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaCheckCircle, FaUserMd, FaHeartbeat, FaHospital, FaArrowRight } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCheckCircle, FaUserMd, FaHeartbeat, FaHospital, FaChevronDown } from 'react-icons/fa';
 
 const features = [
   { icon: FaHeartbeat, title: 'Patient First Approach' },
@@ -17,8 +17,10 @@ const milestones = [
 ];
 
 const About = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <section id="about" className="py-24 bg-white relative overflow-hidden wave-divider wave-divider-slate-bottom">
+    <section id="about" className="pt-8 pb-12 bg-white relative overflow-hidden wave-divider wave-divider-slate-bottom">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-light/30 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary-light/40 rounded-full blur-3xl -z-10 -translate-x-1/3 translate-y-1/3"></div>
 
@@ -40,12 +42,6 @@ const About = () => {
                 className="w-full h-[500px] object-cover transition-transform duration-700 hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex items-end p-10">
-                <div className="text-white">
-                  <h3 className="text-4xl font-extrabold mb-2 tracking-tight">4+ Years</h3>
-                  <p className="text-lg font-medium text-white/90">Of Medical Excellence in Pune</p>
-                </div>
-              </div>
             </div>
 
             {/* Floating Card */}
@@ -88,9 +84,41 @@ const About = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-shift heading-underline">High-Quality Healthcare</span>
             </h2>
 
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Bhavani Hospital, a leading and trusted healthcare provider, stands proudly at the MIT Corner on the Pune-Solapur Highway. Established in March 2021, it has quickly become the preferred destination for holistic and compassionate care in the region.
-            </p>
+            <div className="mb-8">
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Bhavani Hospital, a leading and trusted healthcare provider, stands proudly at the MIT Corner on the Pune-Solapur Highway. Established in March 2021, it has quickly become the preferred destination for holistic and compassionate care in the region.
+              </p>
+              
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden mt-4 text-lg text-gray-600 leading-relaxed"
+                  >
+                    <p className="mb-4">
+                      Our facility is equipped with state-of-the-art infrastructure and a dedicated team of professionals committed to your well-being. We offer comprehensive services ranging from general medicine to specialized care, ensuring that every patient receives personalized and effective treatment.
+                    </p>
+                    <p>
+                      At Bhavani Hospital, we believe in a patient-first approach. We strive to provide an environment that is not only medically excellent but also warm, safe, and welcoming for you and your loved ones.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:text-accent transition-colors mt-4 group"
+              >
+                {isExpanded ? 'Show Less' : 'Read More'}
+                <FaChevronDown 
+                  className={`transform transition-transform duration-300 group-hover:translate-y-0.5 ${isExpanded ? 'rotate-180' : ''}`} 
+                  size={12} 
+                />
+              </button>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
               <div className="bg-glass-card p-6 rounded-2xl hover-glow hover:border-primary/30 transition-all duration-300 card-3d">

@@ -4,7 +4,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaWhatsapp, FaDirectio
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-white relative overflow-hidden">
+    <section id="contact" className="pt-8 pb-16 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-light/30 rounded-full blur-3xl -z-10 -translate-x-1/3 -translate-y-1/3"></div>
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent-light/20 rounded-full blur-3xl -z-10 translate-x-1/3 translate-y-1/3"></div>
 
@@ -79,18 +79,40 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-glass-card rounded-2xl p-6 flex gap-4 hover-glow hover:-translate-y-1 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent to-teal-400 text-white rounded-xl flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <FaClock size={18} />
+            <div className="bg-glass-card rounded-2xl p-6 hover-glow hover:-translate-y-1 transition-all duration-300 group">
+              <div className="flex gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent to-teal-400 text-white rounded-xl flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <FaClock size={18} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-800 mb-1">OPD Timings</h4>
+                  <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Monday – Sunday</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-gray-800 mb-1">Working Hours</h4>
-                <p className="text-sm text-gray-600">Mon - Sat: 10:00 AM - 9:00 PM</p>
-                <p className="text-sm text-green-600 font-semibold mt-1 flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                  Emergency: 24/7 Open
-                </p>
+              <div className="space-y-3 pl-2">
+                <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl">
+                  <div className="w-8 h-8 bg-accent/10 text-accent rounded-lg flex items-center justify-center shrink-0">
+                    <FaClock size={12} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-gray-700">Morning Session</p>
+                    <p className="text-sm font-bold text-primary">10:00 AM – 2:00 PM</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl">
+                  <div className="w-8 h-8 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center shrink-0">
+                    <FaClock size={12} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-gray-700">Evening Session</p>
+                    <p className="text-sm font-bold text-primary">5:00 PM – 9:00 PM</p>
+                  </div>
+                </div>
               </div>
+              <p className="text-sm text-green-600 font-semibold mt-3 flex items-center gap-1 pl-2">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Emergency: 24/7 Open
+              </p>
             </div>
 
             <div className="flex gap-3">

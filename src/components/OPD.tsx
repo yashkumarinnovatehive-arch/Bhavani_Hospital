@@ -4,7 +4,7 @@ import { FaClock, FaCalendarAlt, FaPhoneAlt } from 'react-icons/fa';
 
 const OPD = () => {
   return (
-    <section id="opd" className="py-24 bg-primary-dark relative overflow-hidden">
+    <section id="opd" className="pt-12 pb-12 bg-primary-dark relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent bg-[length:30px_30px]"></div>
       
