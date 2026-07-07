@@ -13,7 +13,7 @@ const galleryImages = [
   { id: 4, category: 'OPD', src: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'OPD Section' },
   { id: 5, category: 'Medical Equipment', src: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Advanced Equipment' },
   { id: 6, category: 'Beds', src: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Patient Beds' },
-  { id: 7, category: 'Clinic Interior', src: '/Clicknik.png', alt: 'Clinic Interior' },
+  { id: 7, category: 'Clinic Interior', src: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Clinic Interior' },
   { id: 8, category: 'Facilities', src: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Laboratory' },
 ];
 

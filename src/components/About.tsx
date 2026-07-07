@@ -37,7 +37,7 @@ const About = () => {
           >
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-50 animate-glow-pulse">
               <img
-                src="/Building.png"
+                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
                 alt="Bhavani Hospital Interior"
                 className="w-full h-[500px] object-cover transition-transform duration-700 hover:scale-105"
                 loading="lazy"

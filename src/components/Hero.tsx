@@ -40,7 +40,7 @@ const useCounter = (end: number, duration = 1800) => {
 interface StatItem {
   icon: React.ElementType;
   end: number;
-  suffix: string;
+  suffix?: string;
   label: string;
 }
 
@@ -49,7 +49,7 @@ const StatCard: React.FC<{ stat: StatItem; index: number }> = ({ stat, index }) 
   return (
     <div
       ref={ref}
-      className="stat-card bg-glass-card rounded-2xl p-6 text-center hover-glow hover:-translate-y-1 transition-all duration-300 group cursor-default"
+      className="stat-card bg-glass-card rounded-2xl p-6 text-center hover-glow hover:-translate-y-1 transition-all duration-300 group cursor-default border-t-[4px] border-t-[#0ea5e9]"
     >
       <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-primary text-xl group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-300 will-change-transform">
         <stat.icon />
@@ -63,15 +63,15 @@ const StatCard: React.FC<{ stat: StatItem; index: number }> = ({ stat, index }) 
 };
 
 const stats: StatItem[] = [
-  { icon: FaHospital, end: 4, suffix: '+', label: 'Years of Excellence' },
-  { icon: FaSmile, end: 10, suffix: 'k+', label: 'Happy Patients' },
-  { icon: FaUserMd, end: 5, suffix: '+', label: 'Expert Doctors' },
-  { icon: FaHeartbeat, end: 24, suffix: '/7', label: 'Emergency Care' },
+  { icon: FaHospital, end: 6, suffix: '+', label: 'Years of Excellence' },
+  { icon: FaSmile, end: 50, suffix: 'k+', label: 'Happy Patients' },
+  { icon: FaUserMd, end: 4, label: 'Expert Doctors' },
+  
 ];
 
 const Hero = () => {
   /* Typing animation */
-  const fullText = "Your Family's Trusted";
+  const fullText = "Best of Care,";
   const [typedText, setTypedText] = useState('');
 
   useEffect(() => {
@@ -85,7 +85,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-[100svh] pt-16 lg:pt-20 pb-6 flex items-center bg-hero-gradient overflow-hidden">
+    <section id="home" className="relative min-h-[100svh] pt-24 lg:pt-44 pb-6 flex items-center bg-hero-gradient overflow-hidden">
 
       {/* ── Animated Blobs (GPU-accelerated, will-change) ── */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-accent-light/60 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob-morph will-change-transform" />
@@ -113,7 +113,7 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
               </span>
-              <span className="text-sm font-bold text-primary tracking-wide">Caring for Pune since 2005</span>
+              <span className="text-sm font-bold text-primary tracking-wide">Caring for pune since 2021</span>
             </motion.div>
 
             <motion.h1
@@ -124,7 +124,7 @@ const Hero = () => {
             >
               {typedText}
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-shift">Healthcare</span> Partner
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-shift">Close to Home</span>
             </motion.h1>
 
             <motion.p
@@ -133,7 +133,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
             >
-              Experience world-class healthcare with compassionate doctors, state-of-the-art facilities, and treatment you can trust—right here in Pune.
+              Delivering excellence in healthcare with compassion and integrity, Bhavani Hospital is dedicated to providing comprehensive medical services, advanced diagnostics, and patient-centered care for every stage of life—all conveniently close to your home.
             </motion.p>
 
             <motion.div
@@ -217,7 +217,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
+          className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 max-w-4xl mx-auto"
         >
           {stats.map((stat, index) => (
             <StatCard key={index} stat={stat} index={index} />
