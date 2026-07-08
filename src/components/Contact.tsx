@@ -56,7 +56,7 @@ const Contact = () => {
               <div>
                 <h4 className="font-bold text-gray-800 mb-1">Hospital Address</h4>
                 <p className="text-[15px] text-gray-600 leading-relaxed">Bhavani Hospital, Near Bharat Petroleum, MIT Corner, Pune Solapur Highway, Loni Kalbhor</p>
-                <a href="https://maps.google.com/?q=18.4891575,74.0237846" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-2 text-sm font-bold text-primary hover:text-accent transition-colors">
+                <a href="https://maps.app.goo.gl/cDv3XUToe4J1H7668?g_st=ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-2 text-sm font-bold text-primary hover:text-accent transition-colors">
                   <FaDirections size={12} /> Get Directions
                 </a>
               </div>
@@ -69,6 +69,9 @@ const Contact = () => {
               <div>
                 <h4 className="font-bold text-gray-800 mb-1">Clinic Address</h4>
                 <p className="text-[15px] text-gray-600 leading-relaxed">Bhavani Clinic, Pandavdand Road, Kadamwak Wasti, Pune 412201</p>
+                <a href="https://maps.app.goo.gl/jqoU1CBDn5DovkHD8?g_st=ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-2 text-sm font-bold text-primary hover:text-accent transition-colors">
+                  <FaDirections size={12} /> Get Directions
+                </a>
               </div>
             </div>
 

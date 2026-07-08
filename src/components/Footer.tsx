@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaInstagram, FaFacebookF, FaTwitter, FaArrowUp, FaPhoneAlt, FaEnvelope, FaLinkedinIn } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaTwitter, FaArrowUp, FaPhoneAlt, FaEnvelope, FaLinkedinIn, FaDirections } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="relative bg-primary-dark text-gray-300 pt-20 pb-10 overflow-hidden">
@@ -86,10 +86,16 @@ const Footer = () => {
               <div className="bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
                 <h5 className="text-white font-bold text-[15px] mb-1">Hospital Address</h5>
                 <p className="text-sm text-gray-300 leading-relaxed">Bhavani Hospital, Near Bharat Petroleum, MIT Corner, Pune Solapur Highway, Loni Kalbhor</p>
+                <a href="https://maps.app.goo.gl/cDv3XUToe4J1H7668?g_st=ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-2 text-xs font-bold text-accent-light hover:text-white transition-colors">
+                  <FaDirections size={12} /> Get Directions
+                </a>
               </div>
               <div className="bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
                 <h5 className="text-white font-bold text-[15px] mb-1">Clinic Address</h5>
                 <p className="text-sm text-gray-300 leading-relaxed">Bhavani Clinic, Pandavdand Road, Kadamwak Wasti, Pune 412201</p>
+                <a href="https://maps.app.goo.gl/jqoU1CBDn5DovkHD8?g_st=ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-2 text-xs font-bold text-accent-light hover:text-white transition-colors">
+                  <FaDirections size={12} /> Get Directions
+                </a>
               </div>
             </div>
 
