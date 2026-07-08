@@ -3,7 +3,7 @@ import Hero from '../components/Hero';
 import ManagementMessage from '../components/ManagementMessage';
 import Doctors from '../components/Doctors';
 import WhyChooseUs from '../components/WhyChooseUs';
-import Facilities from '../components/Facilities';
+
 import Gallery from '../components/Gallery';
 import Appointment from '../components/Appointment';
 import Testimonials from '../components/Testimonials';
@@ -16,7 +16,7 @@ const Home = () => {
       <ManagementMessage />
       <Doctors />
       <WhyChooseUs />
-      <Facilities />
+
       <Gallery />
       <Appointment />
       <Testimonials />

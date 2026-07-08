@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Services from '../components/Services';
+import Facilities from '../components/Facilities';
 
 const ServicesPage = () => {
   useEffect(() => {
@@ -7,8 +8,9 @@ const ServicesPage = () => {
   }, []);
 
   return (
-    <div className="pt-24 lg:pt-44 min-h-screen">
+    <div className="pt-24 lg:pt-44 pb-16 min-h-screen bg-slate-50">
       <Services />
+      <Facilities />
     </div>
   );
 };

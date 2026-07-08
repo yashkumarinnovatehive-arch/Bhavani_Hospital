@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaInstagram, FaFacebookF, FaTwitter, FaArrowUp, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
-
+import { FaInstagram, FaFacebookF, FaTwitter, FaArrowUp, FaPhoneAlt, FaEnvelope, FaLinkedinIn } from 'react-icons/fa';
 const Footer = () => {
-  const [showBackToTop, setShowBackToTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setShowBackToTop(window.scrollY > 600);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="relative bg-primary-dark text-gray-300 pt-20 pb-10 overflow-hidden">
       {/* Wave Separator */}
@@ -34,7 +21,7 @@ const Footer = () => {
           <div className="lg:pr-6">
             <div className="flex items-center gap-3 mb-8">
               <div className="bg-white p-3 rounded-2xl shadow-lg border border-white/10">
-                <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-14 object-contain" />
+                <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-20 object-contain" />
               </div>
               <div>
                 <h3 className="text-white font-extrabold text-lg">Bhavani Hospital</h3>
@@ -45,14 +32,14 @@ const Footer = () => {
               Your trusted healthcare partner providing comprehensive medical services with modern facilities and compassionate care in Pune.
             </p>
             <div className="flex gap-3">
-              <a href="https://instagram.com/bhavani_hospitals" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 hover:text-white hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-transparent hover:shadow-lg hover:shadow-pink-500/20">
-                <FaInstagram size={16} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#1877F2] hover:text-white hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-transparent hover:shadow-lg hover:shadow-blue-500/20">
+              <a href="https://www.facebook.com/Bhavanihospitalpune/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#1877F2] hover:text-white hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-transparent hover:shadow-lg hover:shadow-blue-500/20">
                 <FaFacebookF size={16} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#1DA1F2] hover:text-white hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20">
+              <a href="https://x.com/bhavanihospital" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#1DA1F2] hover:text-white hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20">
                 <FaTwitter size={16} />
+              </a>
+              <a href="https://www.linkedin.com/company/bhavani-hospitals/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#0077b5] hover:text-white hover:-translate-y-1 transition-all duration-300 border border-white/10 hover:border-transparent hover:shadow-lg hover:shadow-blue-500/20">
+                <FaLinkedinIn size={16} />
               </a>
             </div>
           </div>
@@ -65,11 +52,12 @@ const Footer = () => {
                 <span className="absolute -bottom-3 left-0 w-10 h-1 bg-gradient-to-r from-accent to-primary rounded-full"></span>
               </h4>
               <ul className="space-y-4 text-gray-400">
-                <li><a href="#about" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>About Hospital</a></li>
-                <li><a href="#doctors" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Our Doctors</a></li>
-                <li><a href="#facilities" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Facilities</a></li>
-                <li><a href="#gallery" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Gallery</a></li>
-                <li><a href="#contact" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Contact Us</a></li>
+                <li><a href="#about" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>About Hospital</a></li>
+                <li><a href="#doctors" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Our Doctors</a></li>
+                <li><a href="#facilities" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Facilities</a></li>
+                <li><a href="#gallery" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Gallery</a></li>
+                <li><a href="/patient-rights" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Patients Rights and Responsibilities</a></li>
+                <li><a href="#contact" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Contact Us</a></li>
               </ul>
             </div>
 
@@ -79,65 +67,60 @@ const Footer = () => {
                 <span className="absolute -bottom-3 left-0 w-10 h-1 bg-gradient-to-r from-accent to-primary rounded-full"></span>
               </h4>
               <ul className="space-y-4 text-gray-400">
-                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>General Consultation</a></li>
-                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Pediatrics</a></li>
-                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Ayurvedic Treatment</a></li>
-                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>General Surgery</a></li>
-                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-sm"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Emergency Care</a></li>
+                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>General Consultation</a></li>
+                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Pediatrics</a></li>
+                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Ayurvedic Treatment</a></li>
+                <li><a href="#services" className="hover:text-accent-light hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 text-[15px]"><span className="w-1 h-1 rounded-full bg-accent/50"></span>Emergency Care</a></li>
               </ul>
             </div>
           </div>
 
-          {/* Emergency */}
+          {/* Locations & Contact */}
           <div>
             <h4 className="text-white font-extrabold text-lg mb-8 relative inline-block">
-              Emergency
+              Locations
               <span className="absolute -bottom-3 left-0 w-10 h-1 bg-gradient-to-r from-red-500 to-orange-400 rounded-full"></span>
             </h4>
-            <div className="bg-white/5 p-5 rounded-2xl border border-white/5 mb-4 hover:border-white/20 hover:bg-white/10 transition-all duration-300 group cursor-pointer">
-              <span className="block text-xs font-bold text-gray-400 mb-1 uppercase tracking-wider flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                </span>
-                Ambulance
-              </span>
-              <a href="tel:1066" className="text-2xl font-extrabold text-accent-light group-hover:text-accent transition-colors">1066</a>
+            
+            <div className="space-y-5 mb-8">
+              <div className="bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
+                <h5 className="text-white font-bold text-[15px] mb-1">Hospital Address</h5>
+                <p className="text-sm text-gray-300 leading-relaxed">Bhavani Hospital, Near Bharat Petroleum, MIT Corner, Pune Solapur Highway, Loni Kalbhor</p>
+              </div>
+              <div className="bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
+                <h5 className="text-white font-bold text-[15px] mb-1">Clinic Address</h5>
+                <p className="text-sm text-gray-300 leading-relaxed">Bhavani Clinic, Pandavdand Road, Kadamwak Wasti, Pune 412201</p>
+              </div>
             </div>
+
             <div className="bg-white/5 p-5 rounded-2xl border border-white/5 mb-4 hover:border-white/20 hover:bg-white/10 transition-all duration-300 group cursor-pointer">
               <span className="block text-xs font-bold text-gray-400 mb-1 uppercase tracking-wider flex items-center gap-2">
                 <FaPhoneAlt size={10} />
                 Reception
               </span>
-              <a href="tel:+917796655655" className="text-xl font-bold text-white group-hover:text-accent-light transition-colors">+91 7796 655 655</a>
+              <a href="tel:+917796655655" className="text-xl font-bold text-white group-hover:text-accent-light transition-colors">+91 7796-655-655</a>
             </div>
+            
             <div className="bg-white/5 p-5 rounded-2xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 group cursor-pointer">
               <span className="block text-xs font-bold text-gray-400 mb-1 uppercase tracking-wider flex items-center gap-2">
                 <FaEnvelope size={10} />
                 Email
               </span>
-              <a href="mailto:bhavanihospital.lk@gmail.com" className="text-sm font-medium text-white break-all group-hover:text-accent-light transition-colors">bhavanihospital.lk@gmail.com</a>
+              <a href="mailto:bhavanihospital.lk@gmail.com" className="text-[15px] font-medium text-white break-all group-hover:text-accent-light transition-colors">bhavanihospital.lk@gmail.com</a>
             </div>
           </div>
 
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <div className="border-t border-white/10 pt-8 flex flex-col items-center justify-center gap-4 text-[15px] text-gray-400 text-center">
           <p>&copy; {new Date().getFullYear()} <span className="font-semibold text-white">Bhavani Hospital Pune</span>. All rights reserved.</p>
-          <p className="flex items-center gap-1 font-medium">
+          <p className="flex items-center justify-center gap-1 font-medium">
             Designed & Developed by <a href="https://innovatehive.in/" target="_blank" rel="noopener noreferrer" className="text-white ml-1 font-bold hover:text-accent-light transition-colors">InnovateHive</a>
           </p>
         </div>
       </div>
 
-      {/* Back to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-[176px] right-6 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center shadow-xl hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300 z-50 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
-      >
-        <FaArrowUp size={16} />
-      </button>
     </footer>
   );
 };

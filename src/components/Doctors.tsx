@@ -31,10 +31,10 @@ const doctorsList: Doctor[] = [
     image: '/dr_omprakash_todakari.jpeg',
     degree: 'BAMS',
     designation: 'General Physician',
-    timing: 'Mon-Sat: 10AM-2PM, 5PM-9PM | Sun: 10AM-1PM',
+    timing: 'Mon-Sat: 10AM-2PM, 5PM-10PM | Sun: 10AM-2PM',
     timingDetails: [
-      { days: 'Monday – Saturday', hours: '10:00 AM – 02:00 PM, 05:00 PM – 09:00 PM' },
-      { days: 'Sunday', hours: '10:00 AM – 01:00 PM' }
+      { days: 'Monday – Saturday', hours: '10:00 AM – 02:00 PM, 05:00 PM – 10:00 PM' },
+      { days: 'Sunday', hours: '10:00 AM – 02:00 PM' }
     ],
     about: 'Dr. Omprakash Todakari is a dedicated and compassionate General Physician with a strong commitment to providing high-quality healthcare. With a patient-first approach and sound clinical knowledge, he focuses on accurate diagnosis, effective treatment, and preventive care for people of all age groups.\n\nHe believes in building long-term relationships with patients by listening carefully, understanding their concerns, and providing personalized treatment.',
     experience: '11 years of experience in diagnosing and treating a wide range of acute and chronic medical conditions.',
@@ -58,10 +58,10 @@ const doctorsList: Doctor[] = [
     image: '/dr_ashwini_todakari.jpeg',
     degree: 'BAMS',
     designation: 'General Physician',
-    timing: 'Mon-Sat: 10AM-2PM, 5PM-9PM | Sun: 10AM-1PM',
+    timing: 'Mon-Sat: 10AM-2PM, 5PM-10PM | Sun: 10AM-2PM',
     timingDetails: [
-      { days: 'Monday – Saturday', hours: '10:00 AM – 02:00 PM, 05:00 PM – 09:00 PM' },
-      { days: 'Sunday', hours: '10:00 AM – 01:00 PM' }
+      { days: 'Monday – Saturday', hours: '10:00 AM – 02:00 PM, 05:00 PM – 10:00 PM' },
+      { days: 'Sunday', hours: '10:00 AM – 02:00 PM' }
     ],
     about: 'Dr. Ashwini Todakari is a dedicated Ayurvedic Physician with a passion for promoting natural healing and holistic wellness. She believes in treating the root cause of illness through Ayurveda, proper diet, lifestyle management, and herbal therapies.\n\nShe is committed to providing gentle, effective, and personalized Ayurvedic treatments to help patients lead a balanced and healthy life.',
     qualification: 'BAMS',

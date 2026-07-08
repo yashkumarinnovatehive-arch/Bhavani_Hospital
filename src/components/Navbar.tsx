@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { FaPhoneAlt, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaPhoneAlt, FaBars, FaTimes, FaChevronDown, FaEnvelope } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -26,7 +26,8 @@ const Navbar = () => {
       name: 'Patient Guide',
       dropdown: [
         { name: 'Gallery', path: '/#gallery' },
-        { name: 'Testimonials', path: '/#testimonials' }
+        { name: 'Testimonials', path: '/#testimonials' },
+        { name: 'Rights & Responsibilities', path: '/patient-rights' }
       ]
     },
     { name: 'Contact Us', path: '/#contact' },
@@ -44,16 +45,12 @@ const Navbar = () => {
             <img 
               src="/Logo_transparent.png" 
               alt="Bhavani Hospital Logo" 
-              className="h-12 sm:h-16 lg:h-[72px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm" 
+              className="h-16 sm:h-20 lg:h-[96px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm" 
             />
           </Link>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex flex-col items-end gap-1.5">
-            <div className="flex items-center gap-12 text-[14px] font-bold text-gray-700 mr-2">
-              <span>For Book Appointment</span>
-              <span>24 Hr. Emergency No.</span>
-            </div>
             <div className="flex items-center gap-4">
               <HashLink 
                 smooth
@@ -70,11 +67,18 @@ const Navbar = () => {
                 Book an Appointment
               </HashLink>
               <a 
-                href="tel:+918886606060" 
+                href="mailto:bhavanihospital.lk@gmail.com" 
+                className="flex items-center gap-2 text-gray-700 hover:text-[#0b2466] px-2 py-2 rounded text-sm font-bold transition-colors"
+              >
+                <FaEnvelope size={12} />
+                <span>bhavanihospital.lk@gmail.com</span>
+              </a>
+              <a 
+                href="tel:+917796655655" 
                 className="flex items-center gap-2 text-[#0b2466] border-[1.5px] border-[#0b2466] px-5 py-2 rounded text-sm font-bold hover:bg-[#0b2466]/5 transition-colors"
               >
                 <FaPhoneAlt size={12} />
-                <span>+91 8886-606060</span>
+                <span>+91 7796-655-655</span>
               </a>
             </div>
           </div>
@@ -92,7 +96,7 @@ const Navbar = () => {
       {/* Bottom Tier: Navigation Links (Desktop) */}
       <div className="hidden lg:block border-t border-[#e5e5e5] bg-transparent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex items-center gap-10">
+          <div className="flex items-center justify-center gap-10">
             {navItems.map((item, index) => (
               <div key={index} className="relative group">
                 {item.dropdown ? (
@@ -157,7 +161,7 @@ const Navbar = () => {
             className="lg:hidden fixed top-0 right-0 h-[100dvh] w-[85%] max-w-[320px] bg-white shadow-2xl z-50 flex flex-col"
           >
             <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-              <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-10 object-contain" />
+              <img src="/Logo_transparent.png" alt="Bhavani Hospital Logo" className="h-14 object-contain" />
               <button
                 className="text-gray-400 hover:text-[#0b2466] transition-colors focus:outline-none p-2 -mr-2 rounded-full hover:bg-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -207,9 +211,9 @@ const Navbar = () => {
               <HashLink smooth to="/#appointment" className="flex justify-center bg-[#0b2466] text-white px-4 py-3 rounded-md font-semibold text-sm transition-all" onClick={() => setIsMobileMenuOpen(false)}>
                 Book Appointment
               </HashLink>
-              <a href="tel:+918886606060" className="flex items-center justify-center gap-2 text-[#0b2466] border-2 border-[#0b2466]/20 bg-white px-4 py-3 rounded-md font-bold hover:bg-[#0b2466]/5 transition-colors text-sm">
+              <a href="tel:+917796655655" className="flex items-center justify-center gap-2 text-[#0b2466] border-2 border-[#0b2466]/20 bg-white px-4 py-3 rounded-md font-bold hover:bg-[#0b2466]/5 transition-colors text-sm">
                 <FaPhoneAlt size={14} />
-                <span>+91 8886-606060</span>
+                <span>+91 7796-655-655</span>
               </a>
             </div>
           </motion.div>

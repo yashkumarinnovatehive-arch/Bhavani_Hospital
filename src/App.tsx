@@ -2,11 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Chatbot from './components/Chatbot';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import PackagesPage from './pages/PackagesPage';
-import Chatbot from './components/Chatbot';
+import PatientRightsPage from './pages/PatientRightsPage';
 function App() {
   return (
     <Router>
@@ -18,11 +19,11 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/packages" element={<PackagesPage />} />
+            <Route path="/patient-rights" element={<PatientRightsPage />} />
           </Routes>
         </main>
         <Footer />
         <Chatbot />
-        
         {/* Floating WhatsApp Button */}
         <a 
           href="https://wa.me/917796655655" 

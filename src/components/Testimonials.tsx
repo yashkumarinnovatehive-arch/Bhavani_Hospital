@@ -52,7 +52,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-sm border border-gray-100 text-accent font-bold text-sm tracking-widest uppercase mb-4"
           >
-            <FaGoogle className="text-red-500" />
+            <img src="/Logo_transparent.png" alt="Bhavani Hospital" className="h-4 w-auto" />
             Testimonials
           </motion.div>
           <motion.h2
@@ -65,7 +65,7 @@ const Testimonials = () => {
             What Our Patients <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent heading-underline">Say</span>
           </motion.h2>
 
-          {/* Google Rating Badge */}
+          {/* Bhavani Rating Badge */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,12 +73,12 @@ const Testimonials = () => {
             transition={{ delay: 0.2 }}
             className="inline-flex items-center gap-3 mt-4 bg-white px-5 py-2.5 rounded-full shadow-sm border border-gray-100"
           >
-            <FaGoogle className="text-lg" style={{ color: '#4285F4' }} />
+            <img src="/Logo_transparent.png" alt="Bhavani Hospital" className="h-6 w-auto object-contain" />
             <div className="flex text-yellow-400 text-sm gap-0.5">
               {[...Array(5)].map((_, i) => <FaStar key={i} />)}
             </div>
             <span className="text-sm font-bold text-gray-800">4.8 / 5.0</span>
-            <span className="text-xs text-gray-500">(50+ reviews)</span>
+            <span className="text-xs text-gray-500">(15k+ Happy Patients)</span>
           </motion.div>
         </div>
 
@@ -130,7 +130,6 @@ const Testimonials = () => {
                       <h4 className="font-extrabold text-gray-900 text-base">{testimonial.name}</h4>
                       <span className="text-xs text-accent font-semibold tracking-wide">Verified Patient</span>
                     </div>
-                    <FaGoogle className="text-gray-300 text-lg" />
                   </div>
                 </div>
               </SwiperSlide>

@@ -64,7 +64,7 @@ const StatCard: React.FC<{ stat: StatItem; index: number }> = ({ stat, index }) 
 
 const stats: StatItem[] = [
   { icon: FaHospital, end: 6, suffix: '+', label: 'Years of Excellence' },
-  { icon: FaSmile, end: 50, suffix: 'k+', label: 'Happy Patients' },
+  { icon: FaSmile, end: 15, suffix: 'k+', label: 'Happy Patients' },
   { icon: FaUserMd, end: 4, label: 'Expert Doctors' },
   
 ];
@@ -158,22 +158,7 @@ const Hero = () => {
               </a>
             </motion.div>
 
-            {/* ── Floating Badges ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-wrap gap-3 mt-10"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-green-200 shadow-sm">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-xs font-bold text-green-700">24/7 Emergency</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-blue-200 shadow-sm">
-                <FaShieldAlt className="text-primary text-xs" />
-                <span className="text-xs font-bold text-primary">NABH Standards</span>
-              </div>
-            </motion.div>
+
           </div>
 
           {/* ── Right Image Content ── */}
@@ -204,7 +189,7 @@ const Hero = () => {
                 <FaSmile />
               </div>
               <div>
-                <div className="text-lg font-extrabold text-gray-900">10k+</div>
+                <div className="text-lg font-extrabold text-gray-900">15k+</div>
                 <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Happy Patients</div>
               </div>
             </motion.div>

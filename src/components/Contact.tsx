@@ -55,10 +55,20 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="font-bold text-gray-800 mb-1">Hospital Address</h4>
-                <p className="text-sm text-gray-600 leading-relaxed">Bhavani Hospital, Near Bharat Petroleum, MIT Corner Pune Solapur Highway, Loni Kalbhor, Pune - 412201</p>
-                <a href="https://maps.google.com/?q=18.4891575,74.0237846" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-2 text-xs font-bold text-primary hover:text-accent transition-colors">
+                <p className="text-[15px] text-gray-600 leading-relaxed">Bhavani Hospital, Near Bharat Petroleum, MIT Corner, Pune Solapur Highway, Loni Kalbhor</p>
+                <a href="https://maps.google.com/?q=18.4891575,74.0237846" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-2 text-sm font-bold text-primary hover:text-accent transition-colors">
                   <FaDirections size={12} /> Get Directions
                 </a>
+              </div>
+            </div>
+
+            <div className="bg-glass-card rounded-2xl p-6 flex gap-4 hover-glow hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-xl flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <FaMapMarkerAlt size={18} />
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-800 mb-1">Clinic Address</h4>
+                <p className="text-[15px] text-gray-600 leading-relaxed">Bhavani Clinic, Pandavdand Road, Kadamwak Wasti, Pune 412201</p>
               </div>
             </div>
 
@@ -68,14 +78,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="font-bold text-gray-800 mb-1">Phone Number</h4>
-                <p className="text-sm text-gray-600">Reception: <a href="tel:+917796655655" className="font-semibold text-gray-800 hover:text-primary transition-colors">+91 7796 655 655</a></p>
-                <p className="text-sm text-red-500 font-semibold mt-1 flex items-center gap-1">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                  </span>
-                  Emergency: 1066
-                </p>
+                <p className="text-[15px] text-gray-600">Reception: <a href="tel:+917796655655" className="font-semibold text-gray-800 hover:text-primary transition-colors">+91 7796-655-655</a></p>
               </div>
             </div>
 
@@ -86,33 +89,29 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-1">OPD Timings</h4>
-                  <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Monday – Sunday</p>
                 </div>
               </div>
               <div className="space-y-3 pl-2">
-                <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl">
-                  <div className="w-8 h-8 bg-accent/10 text-accent rounded-lg flex items-center justify-center shrink-0">
+                <div className="flex items-start gap-3 bg-slate-50 p-3 rounded-xl">
+                  <div className="w-8 h-8 bg-accent/10 text-accent rounded-lg flex items-center justify-center shrink-0 mt-1">
                     <FaClock size={12} />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-700">Morning Session</p>
-                    <p className="text-sm font-bold text-primary">10:00 AM – 2:00 PM</p>
+                    <p className="text-sm font-bold text-gray-700">Monday – Saturday</p>
+                    <p className="text-[15px] font-bold text-primary">10:00 AM – 2:00 PM</p>
+                    <p className="text-[15px] font-bold text-primary">5:00 PM – 10:00 PM</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl">
-                  <div className="w-8 h-8 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center shrink-0">
+                <div className="flex items-start gap-3 bg-slate-50 p-3 rounded-xl">
+                  <div className="w-8 h-8 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center shrink-0 mt-1">
                     <FaClock size={12} />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-700">Evening Session</p>
-                    <p className="text-sm font-bold text-primary">5:00 PM – 9:00 PM</p>
+                    <p className="text-sm font-bold text-gray-700">Sunday</p>
+                    <p className="text-[15px] font-bold text-primary">10:00 AM – 2:00 PM</p>
                   </div>
                 </div>
               </div>
-              <p className="text-sm text-green-600 font-semibold mt-3 flex items-center gap-1 pl-2">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                Emergency: 24/7 Open
-              </p>
             </div>
 
             <div className="flex gap-3">

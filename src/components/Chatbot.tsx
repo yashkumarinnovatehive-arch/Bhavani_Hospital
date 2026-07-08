@@ -71,7 +71,7 @@ const Chatbot = () => {
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open Chatbot"
       >
-        {isOpen ? <FaTimes size={24} className="text-[#0b2466]" /> : <img src="/Logo_transparent.png" alt="Chatbot Logo" className="w-11 h-11 object-contain" />}
+        {isOpen ? <FaTimes size={24} className="text-[#0b2466]" /> : <img src="/chatbot logo .jpeg" alt="Chatbot Logo" className="w-full h-full object-cover rounded-full" />}
       </motion.button>
 
       {/* Chat Window */}
@@ -87,8 +87,8 @@ const Chatbot = () => {
             {/* Header */}
             <div className="bg-gradient-to-r from-[#0b2466] to-blue-800 text-white p-4 flex justify-between items-center shadow-md">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center backdrop-blur-sm overflow-hidden p-1 shadow-sm">
-                  <img src="/Logo_transparent.png" alt="Bot Avatar" className="w-full h-full object-contain" />
+                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center backdrop-blur-sm overflow-hidden shadow-sm text-[#0b2466]">
+                  <img src="/chatbot logo .jpeg" alt="Bot Avatar" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <div>
                   <h3 className="font-bold text-sm">Bhavani AI Assistant</h3>
@@ -105,8 +105,8 @@ const Chatbot = () => {
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex gap-2 max-w-[85%] ${msg.type === 'user' ? 'ml-auto flex-row-reverse' : ''}`}>
                   {/* Avatar */}
-                  <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-1 overflow-hidden shadow-sm ${msg.type === 'user' ? 'bg-[#c24f2b] text-white' : 'bg-white p-0.5'}`}>
-                    {msg.type === 'user' ? <FaUser size={10} /> : <img src="/Logo_transparent.png" alt="Bot" className="w-full h-full object-contain" />}
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-1 overflow-hidden shadow-sm ${msg.type === 'user' ? 'bg-[#c24f2b] text-white' : 'bg-white text-[#0b2466]'}`}>
+                    {msg.type === 'user' ? <FaUser size={10} /> : <img src="/chatbot logo .jpeg" alt="Bot" className="w-full h-full object-cover rounded-full" />}
                   </div>
                   
                   {/* Bubble */}

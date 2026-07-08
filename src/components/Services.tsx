@@ -14,10 +14,9 @@ const services = [
   { icon: FaBaby, title: 'Child Specialist', desc: 'Specialized pediatric care for your little ones, from routine checkups to specialized treatments.', gradient: 'from-pink-500 to-rose-400' },
   { icon: FaLeaf, title: 'Ayurveda Consultant', desc: 'Traditional holistic healing approaches and Panchakarma therapies by our Ayurveda expert.', gradient: 'from-green-500 to-emerald-400' },
   { icon: FaHandHoldingUsd, title: 'Affordable Treatment', desc: 'Quality healthcare at affordable prices, making medical care accessible to everyone.', gradient: 'from-accent to-teal-400' },
-  { icon: FaAmbulance, title: 'Emergency Support', desc: '24/7 emergency medical services with immediate response and round-the-clock care.', gradient: 'from-red-500 to-orange-400' },
+  { icon: FaAmbulance, title: 'Emergency Support', desc: 'Emergency medical services with immediate response and round-the-clock care.', gradient: 'from-red-500 to-orange-400' },
   
   // Specific Medical Services
-  { icon: FaSyringe, title: 'General Surgery', desc: 'Advanced surgical procedures performed by experienced surgeons.', gradient: 'from-purple-500 to-indigo-400' },
   { icon: FaHeartbeat, title: 'Health Checkup', desc: 'Preventive health screening packages tailored for your specific needs.', gradient: 'from-red-500 to-orange-400' },
   { icon: FaVial, title: 'Vaccination', desc: 'Complete immunization schedules for children and adults.', gradient: 'from-secondary to-cyan-400' },
   { icon: FaShieldAlt, title: 'Preventive Care', desc: 'Proactive healthcare management to prevent future medical issues.', gradient: 'from-accent to-teal-400' },
@@ -95,10 +94,10 @@ const Services = () => {
                   <service.icon />
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors relative z-10">{service.title}</h3>
-                <p className="text-gray-500 text-sm mb-6 leading-relaxed flex-grow line-clamp-3 relative z-10">{service.desc}</p>
+                <h3 className="text-[19px] font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors relative z-10">{service.title}</h3>
+                <p className="text-gray-500 text-[15px] mb-6 leading-relaxed flex-grow line-clamp-3 relative z-10">{service.desc}</p>
 
-                <a href="#appointment" className="flex items-center text-primary font-bold text-sm gap-2 mt-auto relative z-10 w-fit cursor-pointer outline-none">
+                <a href="#appointment" className="flex items-center text-primary font-bold text-[15px] gap-2 mt-auto relative z-10 w-fit cursor-pointer outline-none">
                   <span className="relative overflow-hidden">
                     <span className="block transition-transform duration-300 group-hover:-translate-y-full">Read More</span>
                     <span className="absolute top-0 left-0 text-accent block transition-transform duration-300 translate-y-full group-hover:translate-y-0">Book Now</span>

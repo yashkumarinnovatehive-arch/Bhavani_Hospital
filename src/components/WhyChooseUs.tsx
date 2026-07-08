@@ -96,7 +96,7 @@ const WhyChooseUs = () => {
                   <FaUsers />
                 </div>
                 <div>
-                  <div className="text-3xl font-extrabold text-gray-900 tracking-tight">10k+</div>
+                  <div className="text-3xl font-extrabold text-gray-900 tracking-tight">15k+</div>
                   <div className="text-sm font-bold text-gray-500 uppercase tracking-wider">Happy Patients</div>
                 </div>
               </div>
